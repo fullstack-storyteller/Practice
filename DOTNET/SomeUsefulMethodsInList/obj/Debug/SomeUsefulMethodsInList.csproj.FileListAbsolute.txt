@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\SomeUsefulMethodsInList\bin\Debug\SomeUsefulMethodsInList.exe.config
+D:\GitHUB\Practice\DOTNET\SomeUsefulMethodsInList\bin\Debug\SomeUsefulMethodsInList.exe
+D:\GitHUB\Practice\DOTNET\SomeUsefulMethodsInList\bin\Debug\SomeUsefulMethodsInList.pdb
+D:\GitHUB\Practice\DOTNET\SomeUsefulMethodsInList\obj\Debug\SomeUsefulMethodsInList.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\SomeUsefulMethodsInList\obj\Debug\SomeUsefulMethodsInList.exe
+D:\GitHUB\Practice\DOTNET\SomeUsefulMethodsInList\obj\Debug\SomeUsefulMethodsInList.pdb

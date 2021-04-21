@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="ef983822-6682-4e9d-b4ea-957b318fb355" >
+		<wsc:connection wsdlLocation="http://localhost:8080/?wsdl" service="HelloServiceWCF" port="BasicHttpBinding_IHelloServiceWCF" address="http://localhost:8080/HelloService" >
+			<wsc:web-service-security actor="http://schemas.xmlsoap.org/soap/actor/next" />
+		</wsc:connection>
+	</wsc:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cdbbfe77-f8c2-48f7-8aee-91e16e9ead88" basePath="/soap">
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="mainflow" doc:id="67613186-bf3f-42f6-b9a8-b26da4ac41e1" >
+		<http:listener doc:name="Listener" doc:id="a17ebebb-addb-421c-ad79-371af884dcbc" config-ref="HTTP_Listener_config" path="/service"/>
+		<flow-ref doc:name="mainflow" doc:id="06aa86ab-5159-49d4-bf00-cf208617961e" name="messageservice"/>
+	</flow>
+	<flow name="messageservice" doc:id="333bcef2-3211-461b-a73d-48ad151d6891" >
+		<parse-template doc:name="Parse Template" doc:id="14c25561-c74c-41fb-bd55-8e43d3743572" location="NewFile1.xml"/>
+		<wsc:consume operation="GetMessage" doc:name="Consume" doc:id="87f4bf16-19d4-46d8-8bc9-abdc66ff455b" config-ref="Web_Service_Consumer_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="da8d8d90-3226-47c5-ac5d-0646fb2777f7" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+---
+message.payload.body.GetMessageResponse]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

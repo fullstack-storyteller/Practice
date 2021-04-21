@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\OverrideEqualsMethod\bin\Debug\OverrideEqualsMethod.exe.config
+D:\GitHUB\Practice\DOTNET\OverrideEqualsMethod\bin\Debug\OverrideEqualsMethod.exe
+D:\GitHUB\Practice\DOTNET\OverrideEqualsMethod\bin\Debug\OverrideEqualsMethod.pdb
+D:\GitHUB\Practice\DOTNET\OverrideEqualsMethod\obj\Debug\OverrideEqualsMethod.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\OverrideEqualsMethod\obj\Debug\OverrideEqualsMethod.exe
+D:\GitHUB\Practice\DOTNET\OverrideEqualsMethod\obj\Debug\OverrideEqualsMethod.pdb

@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box; /*this property insures that the height and width defined for 
+the entire box, not just the content*/
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2 {
+  color: rgba(21, 190, 63, 0.678);
+  /* font-family: Arial, Helvetica, sans-serif; */
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p,
+a {
+  font-size: 18px;
+  text-align: justify;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  margin-bottom: 10px;
+}
+
+/*
+to add decoration/properties to a class
+*/
+.main-text {
+  font-weight: bold;
+}
+
+/*
+to add decoration/properties to an id
+*/
+#author {
+  font-size: 25px;
+}
+
+.container {
+  width: 1140px;
+  /* margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto; 
+  Instead of doing the above three line we can do it the below convention
+
+  margin: top right bottom left
+  */
+  margin: 20px auto 0 auto;
+}
+.blog-post {
+  /* background-color: #c8c8db; */
+  width: 75%;
+  float: left; /*this will cause the element to shift to left and allow next elements to wrap around it*/
+  padding-right: 30px;
+
+  position: relative; /*because it needs to contain a element with position: absolute*/
+}
+
+.date {
+  position: absolute;
+  right: 30px;
+}
+
+.other-posts {
+  /* background-color: rgb(107, 197, 107); */
+  width: 25%;
+  float: left;
+}
+
+.author-box {
+  /* background-color: yellow; */
+  padding: 20px;
+  border-top: 3px solid grey;
+}
+.author-box img {
+  /*this helps in selecting only the img tags of the author box*/
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.author-box #author {
+  float: left;
+  margin: 10px auto 0 5px;
+  font-size: 20px;
+}
+.clear-fix::after {
+  /*this clears the effect of the float:left. SO that author div doesn't display along side the other post*/
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.other-post {
+  height: 30px;
+  margin: 5px auto 5px auto;
+  border: grey solid 0.5px;
+  padding-left: 3px;
+  padding-top: 3px;
+}
+
+.blog-post img {
+  height: 150px;
+  width: auto; /*to maintain the aspect ratio*/
+}

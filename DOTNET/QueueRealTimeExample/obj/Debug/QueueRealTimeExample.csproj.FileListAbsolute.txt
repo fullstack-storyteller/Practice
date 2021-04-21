@@ -1,0 +1,9 @@
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\bin\Debug\QueueRealTimeExample.exe.config
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\bin\Debug\QueueRealTimeExample.exe
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\bin\Debug\QueueRealTimeExample.pdb
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\obj\Debug\QueueRealTimeExample.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\obj\Debug\QueueRealTimeExample.Form1.resources
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\obj\Debug\QueueRealTimeExample.Properties.Resources.resources
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\obj\Debug\QueueRealTimeExample.csproj.GenerateResource.cache
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\obj\Debug\QueueRealTimeExample.exe
+D:\GitHUB\Practice\DOTNET\QueueRealTimeExample\obj\Debug\QueueRealTimeExample.pdb

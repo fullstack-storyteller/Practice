@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="39a34e96-8254-4808-846b-c481b8ee3a65" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<validation:config name="Validation_Config" doc:name="Validation Config" doc:id="1e4594f4-68bf-4760-8062-4aa3a0f1b879"/>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="ea8ec1f8-bb7b-4b59-a01a-36d8f6a9fd20" basePath="/rest" >
+		<http:request-connection host="localhost" port="7070" />
+	</http:request-config>
+	<flow name="mainflow" doc:id="f2024914-dfd4-4bcb-9d65-9460ba4d139b" >
+		<http:listener doc:name="Listener" doc:id="4d52aa32-47ef-45cb-9091-d5325d8f317d" config-ref="HTTP_Listener_config" path="/error">
+			<http:error-response >
+				<http:body ><![CDATA[#[//the below is by default
+//output text/plain --- error.description
+
+%dw 2.0
+output application/json
+---
+error.errorType]]]></http:body>
+			</http:error-response>
+		</http:listener>
+		<set-variable value="#[attributes.queryParams.productname]" doc:name="Set Variable" doc:id="1006c3e3-4295-4477-9518-d5447f8821fa" variableName="pname"/>
+		<flow-ref doc:name="Flow Reference" doc:id="deabb22d-14e9-49c5-9251-60dffc444184" name="validateQueryParams"/>
+		<logger level="INFO" doc:name="Logger" doc:id="95ec1cc6-0d88-44f1-a343-c32fd3811eab" message="#[payload]"/>
+	</flow>
+	<flow name="validateQueryParams" doc:id="e4d1c6b8-7a2b-4608-9a7a-be2b2c990162" >
+		<validation:is-true doc:name="Is true" doc:id="b241cb74-40ee-4295-9795-e9196057fcd0" config-ref="Validation_Config" expression="#[['mac', 'hp'] contains vars.pname]" message="Error coming from validateQueryParams"/>
+		<ee:transform doc:name="Transform Message" doc:id="35e85936-046c-48cb-906d-efbfd9519268" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="handlers-mainflow-errorcontinue" doc:id="d2e0abbd-5a83-4b7e-9521-96e95378f6bd" >
+		<http:listener doc:name="Listener" doc:id="44d00ebe-df79-44cd-9255-f1aa24bdacd6" config-ref="HTTP_Listener_config" path="/errorcontinue"/>
+		<set-variable value="#[attributes.queryParams.productname]" doc:name="Set Variable" doc:id="6804b5fd-fe2e-44d7-b2c2-0cfcf93a74ae" variableName="myproducts"/>
+		<flow-ref doc:name="error-continue" doc:id="6fcfb2b1-036f-4090-a888-660c3a959702" name="error-continue"/>
+		<logger level="INFO" doc:name="Logger" doc:id="6c1727d9-dfde-4a74-864b-e901ee68451a" message="'After error continue message'"/>
+	</flow>
+	<flow name="error-continue" doc:id="11db7ae2-dca6-4ef5-8dd7-9a4cd5c4000a" >
+		<http:request method="GET" doc:name="Request" doc:id="c0e878d6-25d8-44a7-a9f3-ef6abd22878c" config-ref="HTTP_Request_configuration" path="/products/{p}">
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	p : vars.myproducts
+}]]]></http:uri-params>
+		</http:request>
+		<ee:transform doc:name="Transform Message" doc:id="26cf047f-8717-4aa8-99e6-43896b5a24a4" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<error-handler >
+			<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="5e2d6a8c-67fe-44ab-8e3b-6edfa10a4394" >
+				<logger level="INFO" doc:name="Logger" doc:id="b28824bb-597e-41d3-b4bd-ba3745200823" message="Error continue message"/>
+			</on-error-continue>
+		</error-handler>
+	</flow>
+	<flow name="handlers-mainflow-errorpropagation" doc:id="3e5505b5-2a8e-4cc6-a141-982d30fa6467" >
+		<http:listener doc:name="Listener" doc:id="03fd8af4-2895-4da3-abbd-9b3f03a60c9c" config-ref="HTTP_Listener_config" path="/errorpropagation"/>
+		<set-variable value="#[message.attributes.queryParams.productname]" doc:name="Set Variable" doc:id="2a2e163f-9794-46ae-90f2-5f4cb434fffc" variableName="prod"/>
+		<flow-ref doc:name="error propagation" doc:id="7534df1d-d908-4ab4-96c0-f0a5aecd1613" name="error-propagation"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f3bc1c7d-ee39-4862-9e0d-95ab17c2789a" message="'After error propagation message'"/>
+	</flow>
+	<flow name="error-propagation" doc:id="4698e89f-2b63-4aa9-86c7-ff2a15517553" >
+		<http:request method="GET" doc:name="Request" doc:id="f5dcd737-ae9e-4c05-88e8-da225267dd9e" config-ref="HTTP_Request_configuration" path="/products/{p}">
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	p : vars.prod
+}]]]></http:uri-params>
+		</http:request>
+		<ee:transform doc:name="Transform Message" doc:id="a19f0954-540a-4143-a037-c8fb09e85037" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<error-handler >
+			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="08cf8ba6-2595-482b-97f8-03f721aec2d5" >
+				<logger level="INFO" doc:name="Logger" doc:id="a8c509ae-75c9-442f-b7a8-3c61b84e41be" message="Error propagation message"/>
+			</on-error-propagate>
+		</error-handler>
+	</flow>
+</mule>

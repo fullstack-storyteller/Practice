@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="088fb4f9-96e4-41cc-b501-2cd38839a667" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<jms:config name="JMS_Config" doc:name="JMS Config" doc:id="226b643b-9d2d-44e7-84a9-2b4c037ccc96" >
+		<jms:active-mq-connection >
+			<jms:factory-configuration brokerUrl="tcp://Manish:61616" />
+		</jms:active-mq-connection>
+	</jms:config>
+	<flow name="workingwithbrokermangedqueueandjmsFlow" doc:id="9c25d66b-c088-4365-955b-6ea337a7d2cc" >
+		<http:listener doc:name="Listener" doc:id="7f2ee438-709a-4df9-a55d-78bcb2cdb5ee" config-ref="HTTP_Listener_config" path="/jmssend"/>
+		<jms:publish doc:name="Publish" doc:id="e1e488a2-aea0-467d-b5fa-e6b627c1bd3c" config-ref="JMS_Config" destination="inq"/>
+		<logger level="INFO" doc:name="Logger" doc:id="63a9d7e2-c1e8-4963-9098-7c11e95f83fb" message="#[payload]"/>
+	</flow>
+	<flow name="workingwithbrokermangedqueueandjmsFlow1" doc:id="65866362-86ff-4288-9fb3-8c8ff3d6db82" >
+		<jms:listener doc:name="On New Message" doc:id="71d02548-5e4d-4279-844f-7456c2d9835e" config-ref="JMS_Config" destination="inq">
+			<jms:consumer-type >
+				<jms:queue-consumer />
+			</jms:consumer-type>
+		</jms:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="d5628a2d-f62d-485d-b08f-f53032253307" message="#['Received '++ payload]"/>
+	</flow>
+	<flow name="publishandsendwithoutreplyqueue" doc:id="61b930a0-d699-4cd0-8c9d-9b6a818b5109" >
+		<http:listener doc:name="Listener" doc:id="25c4534c-d11f-4449-8baa-443f8d51f4a0" config-ref="HTTP_Listener_config" path="/publishconsume"/>
+		<jms:publish-consume doc:name="Publish consume" doc:id="0d66aa1e-a2ac-426b-bedb-ec8ce63d8153" config-ref="JMS_Config" destination="publishandconsumesend"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2768f85d-49b9-4a12-8589-1cef501858c4" message="#['Received '++ payload]"/>
+	</flow>
+	<flow name="readthepublishandsendwithoutreplyqueue" doc:id="5228eb9a-8af3-4018-8fcc-6652809678de" >
+		<jms:listener doc:name="listner for publishandconsume" doc:id="30301d70-4605-4cef-9a06-51c429873413" config-ref="JMS_Config" destination="publishandconsumesend">
+			<jms:consumer-type >
+				<jms:queue-consumer />
+			</jms:consumer-type>
+		</jms:listener>
+		<set-payload value="#[payload ++ ' Response']" doc:name="Set Payload" doc:id="520f8d2c-cb7a-4d07-8b74-986ed25b9f09" />
+		<logger level="INFO" doc:name="Logger" doc:id="0150b1a3-f266-4542-8be5-0879daba6a58" message="#[payload]"/>
+	</flow>
+	<flow name="publishandconsumewithreplyqueue" doc:id="16b10108-b389-4a4a-a6b4-a8a7be29ef79" >
+		<http:listener doc:name="Listener" doc:id="a40dee94-54e5-4814-932f-1b440134852e" config-ref="HTTP_Listener_config" path="/publishandconsumewithreplyq"/>
+		<jms:publish-consume doc:name="Publish consume" doc:id="ae9be91a-11be-4f20-80e5-c4a55af8cba8" destination="withreplyqueue" config-ref="JMS_Config">
+			<jms:message >
+				<jms:reply-to destination="myreplyqueue" />
+			</jms:message>
+		</jms:publish-consume>
+		<logger level="INFO" doc:name="Logger" doc:id="086c5c72-fe09-4855-816c-c670ca18bc45" message="#[payload]"/>
+	</flow>
+	<flow name="readthepublishandsendwithreplyqueue" doc:id="9ecaf3bb-9615-4d5a-81a9-f9b929651d63" >
+		<jms:listener doc:name="On New Message" doc:id="af7c5373-b552-4dfb-b815-81d40f467603" config-ref="JMS_Config" destination="withreplyqueue"/>
+		<set-payload value="#[payload ++ ' Response with queue flow']" doc:name="Set Payload" doc:id="b13373a1-2dc1-4742-a981-bab8a55c35ad" />
+		<logger level="INFO" doc:name="Logger" doc:id="3d93c5e6-5068-41b0-add5-7f18918c9926" message="#[payload]"/>
+	</flow>
+	<flow name="listeningforjmsmessageswithfileter" doc:id="4e0af82e-47b3-4aee-b36b-02fc8e99c35f" >
+		<jms:listener doc:name="On New Message" doc:id="c03f5e93-788f-43fa-b8e1-6620c351f88d" config-ref="JMS_Config" destination="queuewithfilter" selector="JMSPriority=1" doc:description="this listener will only listen the jms messages with priority =1">
+			<jms:consumer-type >
+				<jms:queue-consumer />
+			</jms:consumer-type>
+		</jms:listener>
+		<set-payload value="#[payload ++ ' Response: Filtered jms messages']" doc:name="Set Payload" doc:id="72652c22-1253-409c-a71e-64cfc072899a" />
+		<logger level="INFO" doc:name="Logger" doc:id="cc753ba4-b40f-45b7-a498-4e458f88a3bb" message="#[payload]"/>
+	</flow>
+</mule>

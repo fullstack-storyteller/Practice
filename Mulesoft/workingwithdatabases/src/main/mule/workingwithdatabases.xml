@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0bc199ca-c352-4f79-bfd8-2470d3949e68" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="a6dead43-77cd-4197-b64e-f778d91cdcd1" >
+		<db:my-sql-connection host="${db.host}" port="${db.port}" user="${secure::db.user}" password="${secure::db.password}" database="${db.dbname}" />
+	</db:config>
+	 
+	<configuration-properties doc:name="Configuration properties" doc:id="2ea979ef-af19-4a65-9c9a-d15af7de4e3f" file="${myfile}.yaml" />
+
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="3116cff0-9623-454f-ad4a-1411120c1511" file="secure-${myfile}.yaml" key="abcdefghijklmnop" >
+		<secure-properties:encrypt algorithm="Blowfish" />
+	</secure-properties:config>
+	
+	<flow name="workingwithdatabasesFlow" doc:id="505f14dd-d977-4f20-a785-6fd4c3e0e081" >
+		<http:listener doc:name="Listener" doc:id="9165f44a-7169-463f-915a-6e69c810130d" config-ref="HTTP_Listener_config" path="/films"/>
+		<choice doc:name="Choice" doc:id="e2293e54-c33c-4a38-b733-d47605e81e87" >
+			<when expression="#[message.attributes.queryParams.ratings == null]">
+				<flow-ref doc:name="AllFilms" doc:id="9385ddc5-a69b-4093-82be-c1b41e3b14e4" name="AllFilms"/>
+			</when>
+			<when expression="#[message.attributes.queryParams.ratings != null]">
+				<flow-ref doc:name="FilmsByRatings" doc:id="b98a22bb-0e92-4f83-84b0-ab579f4f77e8" name="FilmsByRatings" />
+			</when>
+			<otherwise>
+				<set-payload value="Invalid Parameters/requests" doc:name="Set Payload" doc:id="82e3cb70-fbd8-4af0-8a16-5bfd5cd9c780" />
+			</otherwise>
+		</choice>
+	</flow>
+	<flow name="AllFilms" doc:id="d6bca841-4e74-454c-b90b-3c0afed4fdf7" >
+		<db:select doc:name="List all movies as list of maps" doc:id="ff42a7c8-8204-4157-9517-5bb04fc6d0f4" config-ref="Database_Config">
+			<db:sql><![CDATA[SELECT `film`.`film_id`,
+    `film`.`title`,
+    `film`.`description`,
+    `film`.`release_year`,
+    `film`.`language_id`,
+    `film`.`original_language_id`,
+    `film`.`rental_duration`,
+    `film`.`rental_rate`,
+    `film`.`length`,
+    `film`.`replacement_cost`,
+    `film`.`rating`,
+    `film`.`special_features`,
+    `film`.`last_update`
+FROM `film`;]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message to JSON" doc:id="3014153c-eef9-493e-bb28-76cf83b870d2">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="FilmsByRatings" doc:id="c892057b-ec9e-4976-a304-b042089e2c02" >
+		<db:select doc:name="Select by ratings of films" doc:id="46e41967-e2ed-41da-b63b-2da18a70efd5" config-ref="Database_Config">
+			<db:sql><![CDATA[SELECT `film`.`film_id`,
+    `film`.`title`,
+    `film`.`description`,
+    `film`.`release_year`,
+    `film`.`language_id`,
+    `film`.`original_language_id`,
+    `film`.`rental_duration`,
+    `film`.`rental_rate`,
+    `film`.`length`,
+    `film`.`replacement_cost`,
+    `film`.`rating`,
+    `film`.`special_features`,
+    `film`.`last_update`
+FROM `sakila`.`film`
+where `film`.`rating` like  :ratings ;]]></db:sql>
+			<db:input-parameters><![CDATA[#[%dw 2.0
+output application/java
+---
+{
+	ratings: message.attributes.queryParams.ratings as String
+}]]]></db:input-parameters>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="3455fbdd-d4a9-4273-83cf-72e3bb94d198">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

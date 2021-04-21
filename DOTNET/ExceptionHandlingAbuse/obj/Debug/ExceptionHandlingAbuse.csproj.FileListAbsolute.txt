@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\ExceptionHandlingAbuse\bin\Debug\ExceptionHandlingAbuse.exe.config
+D:\GitHUB\Practice\DOTNET\ExceptionHandlingAbuse\bin\Debug\ExceptionHandlingAbuse.exe
+D:\GitHUB\Practice\DOTNET\ExceptionHandlingAbuse\bin\Debug\ExceptionHandlingAbuse.pdb
+D:\GitHUB\Practice\DOTNET\ExceptionHandlingAbuse\obj\Debug\ExceptionHandlingAbuse.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\ExceptionHandlingAbuse\obj\Debug\ExceptionHandlingAbuse.exe
+D:\GitHUB\Practice\DOTNET\ExceptionHandlingAbuse\obj\Debug\ExceptionHandlingAbuse.pdb

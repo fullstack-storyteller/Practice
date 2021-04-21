@@ -1,0 +1,7 @@
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\bin\Debug\NamedServiceContractsWCF.dll.config
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\bin\Debug\NamedServiceContractsWCF.dll
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\bin\Debug\NamedServiceContractsWCF.pdb
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\obj\Debug\NamedServiceContractsWCF.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\obj\Debug\NamedServiceContractsWCF.csproj.CoreCompileInputs.cache
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\obj\Debug\NamedServiceContractsWCF.dll
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractsWCF\obj\Debug\NamedServiceContractsWCF.pdb

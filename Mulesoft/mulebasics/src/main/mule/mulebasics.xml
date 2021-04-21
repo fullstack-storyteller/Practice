@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_My_First_One" doc:name="HTTP Listener config" doc:id="d30e2df3-87f9-4851-87d4-3f36c1274d97" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="AnyURLMixed" doc:id="b699c827-f36c-4872-b315-57cceb42fd47" >
+		<http:listener doc:name="Listener" doc:id="dc53cec6-750c-49c1-871f-6e864cd08669" config-ref="HTTP_Listener_My_First_One" path="/AnyUrlPattern/{uname}"/>
+		<set-variable value="#[message.attributes.uriParams.uname]" doc:name="Set Variable" doc:id="167e2673-03f9-44dd-ae93-a8c825d3f45e" variableName="myvar"/>
+		<set-payload value="#['hello world from any url pattern as '++ message.attributes.uriParams.uname ++' Note: it uses urlparams. Variable is: '++ vars.myvar ++ ' reading a mixed url query paramenter: '++ message.attributes.queryParams.name]" doc:name="Set Payload" doc:id="7243c864-e3fc-4834-ba38-dc4758618b30" mimeType="text/plain"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7f82de65-a876-4656-90ba-49ff19af1bbc" message="#[message.payload]"/>
+	</flow>
+	<flow name="mulebasicsFlow" doc:id="999f1c78-7d52-4c3b-b98f-0b033a1205b3" >
+		<http:listener doc:name="Listener" doc:id="9eb54038-0457-435e-9235-27c4803cbe1c" config-ref="HTTP_Listener_My_First_One" path="/Hello"/>
+		<set-payload value="Hello World from Manish, Bruh!" doc:name="Set Payload / Message Body" doc:id="f0aacd54-3c5e-4df1-bf84-72f80d826b63" />
+		<logger level="INFO" doc:name="Logger" doc:id="80cd4649-3996-4f06-9f58-cf03605e03dc" message="#[message.payload]]"/>
+	</flow>
+	<flow name="mulebasicsFlow1" doc:id="dd9dfa7a-0c05-4a03-9806-fb73a73825b1" >
+		<http:listener doc:name="Listener" doc:id="6d8474fe-7880-4805-8da7-286b0e7e1967" config-ref="HTTP_Listener_My_First_One" path="/hello"/>
+		<set-payload value="#['Hello World from '++ message.attributes.queryParams.uname ++'if you dont give any mime type then by default the payload will be written in a text file you can see after download. but if you give mimetype as text/plain then you can see in the browser window itself. Note: it uses queryparams']" doc:name="Set Payload" doc:id="881b02e0-a563-42aa-b15d-c8d2c46f44db" mimeType="text/plain"/>
+		<logger level="INFO" doc:name="Logger" doc:id="5ccc64d3-7dc4-48cc-8335-a521eb994a92" message="#[message.payload]"/>
+	</flow>
+</mule>

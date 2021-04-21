@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="mycsv" format="csv">
+      <types:shape format="weave"><![CDATA[%dw 2.0
+
+type mycsv = Array<{|  "Film Name": String,   "Film Title": String,   Description: String|}> {"isQuotedString": "false",
+"header": "true",
+"headerLineNumber": "0"}
+
+]]></types:shape>
+      <types:properties>
+        <types:property name="headerLineNumber" value="0"/>
+        <types:property name="header" value="true"/>
+        <types:property name="isQuotedString" value="false"/>
+      </types:properties>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#6e2e541a-dcab-4e4f-b9b7-6745e794f86b">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="mycsv"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

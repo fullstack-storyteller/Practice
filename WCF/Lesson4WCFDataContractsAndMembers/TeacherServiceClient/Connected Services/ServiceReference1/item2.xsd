@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8090/?xsd=xsd2" namespace="https://manish.kumar.net/TeacherItem/03/01/2020" />
+  <xs:import schemaLocation="http://localhost:8090/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Web.UI.WebControls" />
+  <xs:element name="InsertNewEmployee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="https://manish.kumar.net/TeacherItem/03/01/2020" minOccurs="0" name="teacher" nillable="true" type="q1:TeacherItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertNewEmployeeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertNewEmployeeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTeacherByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowTeacherByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="https://manish.kumar.net/TeacherItem/03/01/2020" minOccurs="0" name="ShowTeacherByIDResult" nillable="true" type="q2:TeacherItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowAllDepartments">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowAllDepartmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Web.UI.WebControls" minOccurs="0" name="ShowAllDepartmentsResult" nillable="true" type="q3:ArrayOfListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

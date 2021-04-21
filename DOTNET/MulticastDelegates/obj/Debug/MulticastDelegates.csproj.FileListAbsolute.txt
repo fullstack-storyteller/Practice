@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\MulticastDelegates\bin\Debug\MulticastDelegates.exe.config
+D:\GitHUB\Practice\DOTNET\MulticastDelegates\bin\Debug\MulticastDelegates.exe
+D:\GitHUB\Practice\DOTNET\MulticastDelegates\bin\Debug\MulticastDelegates.pdb
+D:\GitHUB\Practice\DOTNET\MulticastDelegates\obj\Debug\MulticastDelegates.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\MulticastDelegates\obj\Debug\MulticastDelegates.exe
+D:\GitHUB\Practice\DOTNET\MulticastDelegates\obj\Debug\MulticastDelegates.pdb

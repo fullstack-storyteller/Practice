@@ -1,0 +1,11 @@
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\bin\Debug\NamedServiceContractHost.exe.config
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\bin\Debug\NamedServiceContractHost.exe
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\bin\Debug\NamedServiceContractHost.pdb
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\bin\Debug\NamedServiceContractsWCF.dll
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\bin\Debug\NamedServiceContractsWCF.pdb
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\bin\Debug\NamedServiceContractsWCF.dll.config
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\obj\Debug\NamedServiceContractHost.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\obj\Debug\NamedServiceContractHost.csproj.CoreCompileInputs.cache
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\obj\Debug\NamedServiceContractHost.csproj.CopyComplete
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\obj\Debug\NamedServiceContractHost.exe
+D:\GitHUB\Practice\WCF\Lesson4NamedServiceContracts\NamedServiceContractHost\obj\Debug\NamedServiceContractHost.pdb

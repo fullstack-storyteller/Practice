@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\StackInCSharp\obj\Debug\StackInCSharp.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\StackInCSharp\bin\Debug\StackInCSharp.exe.config
+D:\GitHUB\Practice\DOTNET\StackInCSharp\bin\Debug\StackInCSharp.exe
+D:\GitHUB\Practice\DOTNET\StackInCSharp\bin\Debug\StackInCSharp.pdb
+D:\GitHUB\Practice\DOTNET\StackInCSharp\obj\Debug\StackInCSharp.exe
+D:\GitHUB\Practice\DOTNET\StackInCSharp\obj\Debug\StackInCSharp.pdb

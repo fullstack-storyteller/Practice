@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebServiceClient", "HelloWebServiceClient.csproj", "{55EDA235-EF30-4ED4-B68B-B1CC15FDAE8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55EDA235-EF30-4ED4-B68B-B1CC15FDAE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55EDA235-EF30-4ED4-B68B-B1CC15FDAE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55EDA235-EF30-4ED4-B68B-B1CC15FDAE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55EDA235-EF30-4ED4-B68B-B1CC15FDAE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1892C15D-5587-4104-98C2-DD4556266389}
+	EndGlobalSection
+EndGlobal

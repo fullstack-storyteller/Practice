@@ -1,0 +1,7 @@
+pear,
+orange,
+mango,
+papaya,
+litchi,
+apple,
+banana

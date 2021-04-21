@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1606811481 source:d:\github\practice\c++\binarysearch\src\search.cpp
+	"Search.h"
+
+1606811481 d:\github\practice\c++\binarysearch\include\search.h
+
+1606814560 source:d:\github\practice\c++\binarysearch\main.cpp
+	<iostream>
+

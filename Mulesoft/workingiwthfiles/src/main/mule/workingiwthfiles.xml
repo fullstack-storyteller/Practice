@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<file:config name="File_Config" doc:name="File Config" doc:id="723758ef-fd10-473f-9382-370032d98c11" >
+		<file:connection workingDir="D:\GitHUB\MuleSoft\Deployables\Files" />
+	</file:config>
+	<file:config name="File_Config1" doc:name="File Config" doc:id="adf485ef-6cd2-4654-89e5-7f89cefdd8ff" >
+		<file:connection workingDir="D:\GitHUB\MuleSoft\Deployables\Files" />
+	</file:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f5729fa1-d5d0-4dd1-b4e5-292f48af3d95" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<file:config name="File_Config2" doc:name="File Config" doc:id="2dc12d75-bbcf-494b-9512-61f3b41fcabb" >
+		<file:connection workingDir="D:\GitHUB\MuleSoft\Deployables\Files" />
+	</file:config>
+	<flow name="workingiwthfilesFlow" doc:id="c1b46113-18bd-4d28-b418-19ead6756119" >
+		<file:listener doc:name="On New or Updated File" doc:id="3a669aae-0eb9-4483-8c47-a38682855f07" config-ref="File_Config" directory="Input" moveToDirectory="D:\GitHUB\MuleSoft\Deployables\Files\Output" renameTo="#[message.attributes.fileName ++ '.backup']">
+			<scheduling-strategy >
+				<fixed-frequency frequency="3" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+		</file:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="cbb9116b-3fb4-47f8-9d70-2cc344bbb126" message="#[payload]"/>
+	</flow>
+	<flow name="workingiwthfilesFlow1" doc:id="d9205947-e321-426a-adee-232da03c28ba" >
+		<file:listener doc:name="On New or Updated File" doc:id="0624c56a-73c0-4721-967d-3fcaa24a5924" config-ref="File_Config1" directory="InpForeachWrapper" watermarkMode="MODIFIED_TIMESTAMP" moveToDirectory="D:\GitHUB\MuleSoft\Deployables\Files\Output" renameTo="#[attributes.fileName++'.wrapperbkup']">
+			<scheduling-strategy >
+				<fixed-frequency frequency="5" />
+			</scheduling-strategy>
+		</file:listener>
+		<ee:transform doc:name="Transform Message" doc:id="be4eed30-c017-456e-9dbd-4999932d431f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<foreach doc:name="For Each" doc:id="90f535aa-c22e-4512-b215-66ca6c887083" >
+			<logger level="INFO" doc:name="Logger" doc:id="b55bead6-b8fb-468a-acf2-48682d14d7e9" message="#[payload]" />
+		</foreach>
+	</flow>
+	<flow name="FlowtoWrite" doc:id="b79b84e2-de82-41bb-8555-69681cd947b8" >
+		<http:listener doc:name="Listener" doc:id="40e84d0f-fdcc-4f8c-806d-792eb9310caa" config-ref="HTTP_Listener_config" path="/product"/>
+		<ee:transform doc:name="Transform Message" doc:id="c7c0e0c7-7e9b-4d31-b539-cd8beab85521" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/csv headerLineNumber = 0 , header = false
+---
+[{
+	productid: attributes.queryParams.productid as String,
+	productname: attributes.queryParams.productname as String,
+	price: attributes.queryParams.price as String
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<file:write doc:name="Write" doc:id="e077d00c-0a8e-44ee-9ab1-a0adee7ec272" path="Output/products.csv" mode="APPEND" config-ref="File_Config"/>
+	</flow>
+</mule>

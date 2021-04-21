@@ -1,0 +1,13 @@
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\bin\Debug\Inheritance.exe.config
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\bin\Debug\Inheritance.exe
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\bin\Debug\Inheritance.pdb
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.csprojAssemblyReference.cache
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.csproj.CoreCompileInputs.cache
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.exe
+H:\My_Workspace\Personal\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.pdb
+D:\GitHUB\Practice\DOTNET\Inheritance\bin\Debug\Inheritance.exe.config
+D:\GitHUB\Practice\DOTNET\Inheritance\bin\Debug\Inheritance.exe
+D:\GitHUB\Practice\DOTNET\Inheritance\bin\Debug\Inheritance.pdb
+D:\GitHUB\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.exe
+D:\GitHUB\Practice\DOTNET\Inheritance\obj\Debug\Inheritance.pdb

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="76a9b8b6-0cb6-4b74-84a2-8e93bb0a7ea2" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="058953a6-6995-449b-9a79-e41b0d1b8892" basePath="/rest" >
+		<http:request-connection host="localhost" port="7070" />
+	</http:request-config>
+	<validation:config name="Validation_Config" doc:name="Validation Config" doc:id="947a678e-601f-4419-b0ea-cc9fbe884361" />
+	<configuration doc:name="Configuration" doc:id="f0234aee-a40e-4e46-8d48-255c1af271d6" defaultErrorHandler-ref="global-error-handler" />
+	<error-handler name="global-error-handler" doc:id="04ce4134-6409-47f6-8b01-9dfccf186f38" >
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="ee21f52a-daf5-431a-8870-81c063044ba9" >
+			<logger level="INFO" doc:name="Logger" doc:id="10ce661a-e921-44af-8444-d138e2020a53" message="Global error handler message: on error propagate"/>
+		</on-error-propagate>
+	</error-handler>
+	<flow name="mainflow" doc:id="1144cac6-33a6-4c5f-b68b-279afc937957" >
+		<http:listener doc:name="Listener" doc:id="b5ea2d05-c320-480c-82b8-9de6b1f58686" config-ref="HTTP_Listener_config" path="/error">
+			<http:error-response >
+				<http:body ><![CDATA[#[output appplication/json --- error.errorType]]]></http:body>
+			</http:error-response>
+		</http:listener>
+		<set-variable value="#[message.attributes.queryParams.productname]" doc:name="Set Variable" doc:id="19d3fb5b-2179-4fa4-9a67-cc2e992b7a3e" variableName="product"/>
+		<flow-ref doc:name="validaterequest" doc:id="c8becb6f-a38b-4ad2-a0f4-2346ff912213" name="validaterequest"/>
+		<logger level="INFO" doc:name="Logger" doc:id="ca49e8b4-4f60-4f25-9b0d-bf8dff4600b9" message="main flow message "/>
+	</flow>
+	<flow name="validaterequest" doc:id="0a2858fb-d911-4885-a448-786c68e25f40" >
+		<validation:is-true doc:name="Is true" doc:id="72746ae3-2a45-493e-9e59-944d69b55196" config-ref="Validation_Config" expression="#[['Hp', 'Mac' ] contains vars.product]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="527132ba-fa8d-465a-9d13-66e2cf821d88" message="#[vars.product ++ ' is fine.']"/>
+		<flow-ref doc:name="restapi-call" doc:id="c01917eb-bd14-47ae-88f3-b1b887bb9bd5" name="restapi-call"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f097973d-1c10-450f-8b6a-f8de7ac49e5a" message="logged in validate request"/>
+		<error-handler >
+			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="de3bd021-839a-4ec5-b76b-6cd0508f4e72" >
+				<logger level="INFO" doc:name="Logger" doc:id="677fcb84-2865-42c2-923e-07e1dc5bbbf5" message="validation failed as invalid input was sent from browser"/>
+			</on-error-propagate>
+		</error-handler>
+	</flow>
+	<flow name="restapi-call" doc:id="bbdc9ae8-af23-41f2-9706-005d75ab8684" >
+		<http:request method="GET" doc:name="Request" doc:id="48db9093-ef8c-424f-9649-e837f5f4460e" config-ref="HTTP_Request_configuration" path="/products/{p}">
+			<error-mapping sourceType="HTTP:CONNECTIVITY" targetType="APP:MANISHCONNECTIONERROR" />
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	p : vars.product
+}]]]></http:uri-params>
+		</http:request>
+		<ee:transform doc:name="Transform Message" doc:id="9f6c2e38-a9c9-43ca-a0c6-fca54c39bcdf" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="b9f2cf93-8a13-404a-b192-64a4fc93b34a" message="restapi call complete"/>
+		<error-handler >
+			<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="aed9b02a-c5b4-401a-829e-1eb173250e84" type="APP:MANISHCONNECTIONERROR">
+				<logger level="INFO" doc:name="Logger" doc:id="e367b92a-5f30-4d86-ad2c-cff1d1d0efe9" message="inside on error continue rest api call" />
+			</on-error-continue>
+			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="64bc0d6f-a609-456c-b587-3f315573d164" >
+				<logger level="INFO" doc:name="Logger" doc:id="a7c9273f-6e58-478c-9234-3d11d55c0f9a" message="inside on error propagate rest api call"/>
+			</on-error-propagate>
+		</error-handler>
+	</flow>
+</mule>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<flow name="mule-batch-followupFlow" doc:id="8f442853-85c0-459d-8154-0fa860c5bf85" >
+		<http:listener doc:name="Listener" doc:id="13f42201-f643-4e3b-bc65-ff58ea16b0f9" config-ref="HTTP_Listener_config" path="/test1"/>
+		<ee:transform doc:name="Transform Message" doc:id="cf3afbb5-3c90-4dd0-946a-f14c68dad348" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+[
+	1, 2, 3, 4, 5, 6, 7, 8, 9,
+	10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+	22, 23, 24, 25, 26, 27,28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+	41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+	60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75,
+	76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
+	92, 93, 94, 95, 96, 97, 98, 99, 100
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<batch:job jobName="mule-batch-followupBatch_Job" doc:id="15bf9a75-7af5-4c2b-95f1-0425ccce6219" maxFailedRecords="10">
+			<batch:process-records >
+				<batch:step name="Batch_Step_1" doc:id="221e2707-f327-4eae-9b6f-d8606ac32c4e" >
+					<choice doc:name="Choice" doc:id="72f1f3f5-4860-4997-9cfa-3fad6e4577f4" >
+						<when expression="#[(payload==20) or (payload==30) or (payload==10)]">
+							<set-variable value="#[false]" doc:name="Set Variable" doc:id="5a38f2db-a444-40cc-aae8-d7acf5267d95" variableName="shall-process" doc:description="this will create a variable in the record data structure on record level.
+If you set the variable before batch job, then it will be avariable for the mule event"/>
+							<raise-error doc:name="Raise error" doc:id="035cd2d7-aded-47b4-86ba-5e80a0db2599" type="APP:MUSTNOTBEPROCESSED" description="This record is excluded from processing"/>
+						</when>
+						<otherwise >
+							<logger level="INFO" doc:name="Logger" doc:id="c202562a-5bf9-482a-b8f7-415687274f6d" message="Step-1: #[payload]"/>
+						</otherwise>
+					</choice>
+				</batch:step>
+				<batch:step name="Batch_Step_2" doc:id="1ec699cb-730f-4a75-99ea-a7d0b1f3b00f" acceptExpression="#[(payload mod 2)==0]">
+					<logger level="INFO" doc:name="Logger" doc:id="da4b2be4-f0b5-41d5-8ead-69ac50aa31a1" message="Step 2 Processor #[payload]"/>
+					<batch:aggregator doc:name="Batch Aggregator" doc:id="85a82944-09a8-4067-8eb4-82adb6eeac47" size="10">
+						<logger level="INFO" doc:name="Logger" doc:id="db7d68cf-9aea-4ac9-80db-74fc2568fb9c" message="#[{'Step 2 Batch Aggregator LOG: ': payload}]"/>
+					</batch:aggregator>
+				</batch:step>
+				<batch:step name="Batch_Step_3" doc:id="461158cb-0baf-4121-b477-21ee873b8b53" acceptPolicy="ONLY_FAILURES">
+					<logger level="INFO" doc:name="Logger" doc:id="f4f3505e-e6a7-4dd6-9fd6-1f52dbf9643f" message="Step -3 #[payload]"/>
+				</batch:step>
+			</batch:process-records>
+			<batch:on-complete >
+				<logger level="INFO" doc:name="Logger" doc:id="901f4092-82fd-49dc-a8e4-82562bde42e0" message="#['TOTal number of records'++ payload.totalRecords ++ 'failed: '++ payload.failedRecords]"/>
+			</batch:on-complete>
+		</batch:job>
+	</flow>
+</mule>

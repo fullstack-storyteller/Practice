@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\Interfaces\bin\Debug\Interfaces.exe.config
+D:\GitHUB\Practice\DOTNET\Interfaces\bin\Debug\Interfaces.exe
+D:\GitHUB\Practice\DOTNET\Interfaces\bin\Debug\Interfaces.pdb
+D:\GitHUB\Practice\DOTNET\Interfaces\obj\Debug\Interfaces.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\Interfaces\obj\Debug\Interfaces.exe
+D:\GitHUB\Practice\DOTNET\Interfaces\obj\Debug\Interfaces.pdb

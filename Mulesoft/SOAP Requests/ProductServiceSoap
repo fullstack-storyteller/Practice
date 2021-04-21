@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns3:getProductsByNameResponse xmlns:ns3="http//way2learnonline.com/domain">
+         <products>
+            <product>
+               <brandName>HP</brandName>
+               <description>Hp Laptop</description>
+               <images>
+                  <image>image1.jpeg</image>
+                  <image>image2.jpeg</image>
+                  <image>image3.jpeg</image>
+               </images>
+               <name>Hp Pavilion laptop</name>
+               <offer>
+                  <offerPrice>1000.0</offerPrice>
+                  <offerValidUntil>2020-10-17T23:23:34.836+05:30</offerValidUntil>
+               </offer>
+               <originalPrice>1000.0</originalPrice>
+               <productId>1</productId>
+            </product>
+         </products>
+      </ns3:getProductsByNameResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

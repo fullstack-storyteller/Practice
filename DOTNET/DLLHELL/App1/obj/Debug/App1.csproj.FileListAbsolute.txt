@@ -1,0 +1,9 @@
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\bin\Debug\App1.exe.config
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\bin\Debug\App1.exe
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\bin\Debug\App1.pdb
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\bin\Debug\ClassLibrary.dll
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\bin\Debug\ClassLibrary.pdb
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\obj\Debug\App1.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\obj\Debug\App1.csproj.CopyComplete
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\obj\Debug\App1.exe
+D:\GitHUB\Practice\DOTNET\DLLHELL\App1\obj\Debug\App1.pdb

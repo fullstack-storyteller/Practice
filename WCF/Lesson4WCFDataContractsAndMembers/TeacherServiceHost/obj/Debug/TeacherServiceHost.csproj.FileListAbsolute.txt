@@ -1,0 +1,12 @@
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\TeacherServiceHost.exe.config
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\TeacherServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\TeacherServiceHost.pdb
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\Lesson4WCFDataContractsAndMembers.dll
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\Lesson4WCFDataContractsAndMembers.pdb
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\obj\Debug\TeacherServiceHost.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\obj\Debug\TeacherServiceHost.csproj.CopyComplete
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\obj\Debug\TeacherServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\obj\Debug\TeacherServiceHost.pdb
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\TeacherObject.dll
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\bin\Debug\TeacherObject.pdb
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceHost\obj\Debug\TeacherServiceHost.csproj.CoreCompileInputs.cache

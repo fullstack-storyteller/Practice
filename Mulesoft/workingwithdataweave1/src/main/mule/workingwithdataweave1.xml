@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9bdc4bbd-a9e9-4c6f-a0da-f910d917947f" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="workingwithdataweave1Flow" doc:id="40188f64-626a-4463-94e8-52f66e48981b" >
+		<http:listener doc:name="Listener" doc:id="9424b663-4837-4fb0-bcbc-8aaf84168bd4" config-ref="HTTP_Listener_config" path="/transform"/>
+		<ee:transform doc:name="Transform Message" doc:id="b53dc4d3-a164-4366-a308-2dbc9e9ce8b5" >
+			<ee:message >
+				<ee:set-payload resource="productxmlexternalized.dwl" />
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable resource="productnamefile.dwl" variableName="productname" />
+				<ee:set-variable variableName="brandname" ><![CDATA[%dw 2.0
+output application/java
+---
+payload.brandName]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="0a297e49-1922-4093-848e-88ff8276f352" message="#[payload]"/>
+	</flow>
+	<flow name="workingwithdataweave1Flow1" doc:id="df116ca5-a14b-4766-a6d1-3468d874b0a0" >
+		<http:listener doc:name="Listener" doc:id="bc1697b6-2020-40be-9635-69b7a2ffb7b9" config-ref="HTTP_Listener_config" path="/transformcomplex"/>
+		<ee:transform doc:name="Transform Message" doc:id="79e6afcb-0525-4fb0-b7dc-d9c1cc5084d5" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[//%dw 2.0
+//output application/json
+//---
+// payload //same a json input
+// payload.brandName //array of brandname from input
+// [payload.brandName,payload.offer, payload.offer.offerPrice ] //array of various arrays
+
+
+// in java
+//%dw 2.0
+//output application/java
+//---
+// payload // in java format
+
+
+//%dw 2.0
+//output application/dw
+//---
+//payload //show data weave format
+//payload here is effectively an array, so we can use map to iterate over it
+//payload map{
+//	pid: $.productId,
+//	brandname: $.brandName,
+//	offerproce: $.offer.offerPrice
+//}
+
+//now the same thing in json with variables
+//%dw 2.0
+//output application/json
+//var myproducts=payload map{
+	//pid: $.productId,
+	//brandname: $.brandName,
+	//offerproce: $.offer
+	
+//	}
+	
+//var obj1={one:1, two:2}
+//var obj2=[
+//	{one:1, two:2, three:3},{one:1, two:2}
+//]
+//---
+//myproducts //display your custom variable in json
+
+//{
+//	myproducts //this gives empty object
+//}
+
+//{
+//	(myproducts )//this gives a flatten key value collection
+//}
+
+// obj1 //shows the object obj
+//{obj1} //this one throws an error
+//{(obj1)} //this one is fine, as it is flattened
+
+//{(obj2)} // this is evaluated fine, and a merged result is shown
+//this means applying the () on an object will flatten the object
+//and only return the object with key, value collection, as this example shows us.
+
+
+
+//%dw 2.0
+//output application/xml
+//var products = payload map{
+//	prod:{
+//	pid:$.productId,
+//	productname:$.name,
+//	brand: $.brandName,
+//	description: $.description}
+//}
+//---
+//products:{
+//(products) //shows as xml 
+//}
+
+
+%dw 2.0
+output application/xml
+var products = payload map{
+	prod:{
+	pid:$.productId,
+	productname:$.name,
+	brand: $.brandName,
+	description: $.description}
+}
+var filteredProd=products filter $.prod.brand=='HP' //hardcoded
+//var filteredProd=products filter $.prod.brand==attributes.queryParams.bname
+---
+products:{
+	//(filteredProd)
+	//(products orderBy -$.prod.pid ) //descending order
+		(products orderBy $.prod.pid ) //ascending order
+}
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="4de5093d-93d2-4d2b-978e-b021b34f846b" message="#[payload]"/>
+	</flow>
+	<flow name="conversionByCountry" doc:id="5d3382ec-9be9-40e6-b2ff-2a45dca9b38f" >
+		<http:listener doc:name="Listener" doc:id="ac5fac5e-a865-49ad-9c02-41d916ac4290" config-ref="HTTP_Listener_config" path="transformcomplex1"/>
+		<ee:transform doc:name="Transform Message" doc:id="546053f6-63a8-46ae-9378-6c551691142e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[/*%dw 2.0
+output application/json
+var myproducts=payload map(product, id)->{
+	product:{
+	pid:product.productId,
+	name: product.name,
+	brand: product.brandName,
+	offer: product.offer.offerPrice
+		}
+}
+---
+products:{
+	(myproducts)
+}
+*/
+
+%dw 2.0
+output application/xml
+
+//var conversionRate= lookup('callthispayloadfromdataweavetransformation', 'US') // calling a flow from dataweave expression
+var conversionRate= lookup('callthispayloadfromdataweavetransformation', attributes.queryParams.country)
+fun getConvertedPrice(price)=price*conversionRate 
+fun getImages(images)={(
+	images map{
+		img:$
+	})
+}
+
+var convert=(price)-> (price*conversionRate)
+var myproducts=payload map(product, id)->{
+	product:{
+	pid:product.productId,
+	name: product.name,
+	brand: product.brandName,
+	//offer: product.offer.offerPrice * conversionRate
+	//offer: product.offer.offerPrice * getConvertedPrice(conversionRate)
+	offer: convert( product.offer.offerPrice ),
+	//imgs:getImages(product.images), //without condition if tag is present
+	(imgs:getImages(product.images)) if product.images?, //with condition check to see if image tag is present.
+	//or we can write like below
+	/*imgs:{
+		(product.images map{
+			img:$
+		})
+	}*/
+	}
+}
+
+
+---
+products:{
+	(myproducts)
+}
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="7ec9be81-97af-48b4-b77b-6c134fc3eb49" message="#[payload]"/>
+	</flow>
+	<flow name="callthispayloadfromdataweavetransformation" doc:id="b82bbfbe-f919-4209-86d4-5e1c51f5fd13" >
+		<choice doc:name="Choice" doc:id="5404d35f-51c5-48b6-94e1-47cfd334fa21" >
+			<when expression="#[payload=='US']">
+				<set-payload value="#[70 as Number]" doc:name="Set Payload" doc:id="47b297b9-a8f3-44b8-a43f-81769d406836" />
+			</when>
+			<when expression="#[payload=='UK']">
+				<set-payload value="#[65 as Number]" doc:name="Set Payload" doc:id="6947f452-659e-46a7-8822-f4ad0b11dfbb" />
+			</when>
+			<otherwise >
+				<set-payload value="#[1 as Number]" doc:name="Set Payload" doc:id="b526452d-eefc-4876-92e4-a7477b913046" />
+			</otherwise>
+		</choice>
+	</flow>
+</mule>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://aig.com/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://aig.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is webservice which will add number</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://aig.com/webservices/">
+      <s:element name="Add2Number">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add2NumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add2NumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add3Number">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="thirdNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add3NumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add3NumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Add2NumberSoapIn">
+    <wsdl:part name="parameters" element="tns:Add2Number" />
+  </wsdl:message>
+  <wsdl:message name="Add2NumberSoapOut">
+    <wsdl:part name="parameters" element="tns:Add2NumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add3NumberSoapIn">
+    <wsdl:part name="parameters" element="tns:Add3Number" />
+  </wsdl:message>
+  <wsdl:message name="Add3NumberSoapOut">
+    <wsdl:part name="parameters" element="tns:Add3NumberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CalculatorServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web method will add two number.</wsdl:documentation>
+      <wsdl:input name="Add2Number" message="tns:Add2NumberSoapIn" />
+      <wsdl:output name="Add2Number" message="tns:Add2NumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web method will add three number.</wsdl:documentation>
+      <wsdl:input name="Add3Number" message="tns:Add3NumberSoapIn" />
+      <wsdl:output name="Add3Number" message="tns:Add3NumberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculatorServiceSoap" type="tns:CalculatorServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://aig.com/webservices/Add2Number" style="document" />
+      <wsdl:input name="Add2Number">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Add2Number">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://aig.com/webservices/Add3Number" style="document" />
+      <wsdl:input name="Add3Number">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Add3Number">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CalculatorServiceSoap12" type="tns:CalculatorServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://aig.com/webservices/Add2Number" style="document" />
+      <wsdl:input name="Add2Number">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Add2Number">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://aig.com/webservices/Add3Number" style="document" />
+      <wsdl:input name="Add3Number">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Add3Number">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculatorService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is webservice which will add number</wsdl:documentation>
+    <wsdl:port name="CalculatorServiceSoap" binding="tns:CalculatorServiceSoap">
+      <soap:address location="http://localhost:62428/CalculatorService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CalculatorServiceSoap12" binding="tns:CalculatorServiceSoap12">
+      <soap12:address location="http://localhost:62428/CalculatorService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

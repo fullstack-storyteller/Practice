@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\StaticKeywords\bin\Debug\StaticKeywords.exe.config
+D:\GitHUB\Practice\DOTNET\StaticKeywords\bin\Debug\StaticKeywords.exe
+D:\GitHUB\Practice\DOTNET\StaticKeywords\bin\Debug\StaticKeywords.pdb
+D:\GitHUB\Practice\DOTNET\StaticKeywords\obj\Debug\StaticKeywords.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\StaticKeywords\obj\Debug\StaticKeywords.exe
+D:\GitHUB\Practice\DOTNET\StaticKeywords\obj\Debug\StaticKeywords.pdb

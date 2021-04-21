@@ -1,0 +1,6 @@
+
+      <tem:GetMessage xmlns:tem="http://tempuri.org/">
+         <!--Optional:-->
+         <tem:name>#[attributes.queryParams.message]</tem:name>
+         <!-- be very careful with the xml it will look for the qualifier tem: in name tag also-->
+      </tem:GetMessage>

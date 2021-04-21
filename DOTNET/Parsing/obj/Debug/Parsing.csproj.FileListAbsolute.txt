@@ -1,0 +1,13 @@
+D:\GitHUB\Practice\DOTNET\Parsing\bin\Debug\Parsing.exe.config
+D:\GitHUB\Practice\DOTNET\Parsing\bin\Debug\Parsing.exe
+D:\GitHUB\Practice\DOTNET\Parsing\bin\Debug\Parsing.pdb
+D:\GitHUB\Practice\DOTNET\Parsing\obj\Debug\Parsing.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\Parsing\obj\Debug\Parsing.exe
+D:\GitHUB\Practice\DOTNET\Parsing\obj\Debug\Parsing.pdb
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\bin\Debug\Parsing.exe.config
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\bin\Debug\Parsing.exe
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\bin\Debug\Parsing.pdb
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\obj\Debug\Parsing.csprojAssemblyReference.cache
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\obj\Debug\Parsing.csproj.CoreCompileInputs.cache
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\obj\Debug\Parsing.exe
+H:\My_Workspace\Personal\Practice\DOTNET\Parsing\obj\Debug\Parsing.pdb

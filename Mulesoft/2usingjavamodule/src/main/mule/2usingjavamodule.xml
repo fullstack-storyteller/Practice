@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:java="http://www.mulesoft.org/schema/mule/java" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/java http://www.mulesoft.org/schema/mule/java/current/mule-java.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8d18d365-4a19-46c2-8c1a-3e2b20ac4f1f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="2usingjavamoduleFlow" doc:id="ffd7e9a5-b95d-4bce-b0f0-04b2bf7a0346" >
+		<http:listener doc:name="Listener" doc:id="bf73b301-6168-4303-9d1f-f394e57e9fda" config-ref="HTTP_Listener_config" path="/Conversation"/>
+		<java:invoke-static method="TellMeYourFullName(String,String)" doc:name="Invoke static" doc:id="07e70b7f-daa7-4ba1-bc26-8fd4da613556" class="learningMule.example">
+			<java:args ><![CDATA[#[%dw 2.0
+output application/java
+---
+{
+	fname: attributes.queryParams.fname as String,
+	lname: attributes.queryParams.lname as String
+}]]]></java:args>
+		</java:invoke-static>
+		<logger level="INFO" doc:name="Logger" doc:id="8081772d-37a8-4908-bb14-43e53a46ebb8" message="#[payload]"/>
+	</flow>
+	<flow name="2usingjavamoduleFlow1" doc:id="d30fb1cb-98a1-47d2-a76e-3eb1e8300b28" >
+		<http:listener doc:name="Listener" doc:id="d040c5c5-6ff3-409b-becc-f6cd1a9ea339" config-ref="HTTP_Listener_config" path="/Convo"/>
+		<java:new doc:name="New" doc:id="9bd602e8-7e65-40aa-b5a7-a992947f8f96" class="learningMule.example" constructor="example(String,String)" target="fulldetails">
+			<java:args ><![CDATA[#[%dw 2.0
+output application/java
+---
+{
+	fname: attributes.queryParams.fname as String,
+	lname: attributes.queryParams.lname as String
+}]]]></java:args>
+		</java:new>
+		<java:invoke doc:name="Invoke" doc:id="6db6a061-944d-449b-a937-d26222ae208c" instance="#[vars.fulldetails]" class="learningMule.example" method="FullDetails(int)">
+			<java:args ><![CDATA[#[%dw 2.0
+output application/java
+---
+{
+	Age: attributes.queryParams.age as Number
+}]]]></java:args>
+		</java:invoke>
+		<logger level="INFO" doc:name="Logger" doc:id="f8496d17-951e-4e07-b5eb-220e88be7dad" message="#[payload]"/>
+	</flow>
+</mule>

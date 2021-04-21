@@ -1,0 +1,11 @@
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\IntroductionToCSharp.exe.config
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\IntroductionToCSharp.exe
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\IntroductionToCSharp.pdb
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\obj\Debug\IntroductionToCSharp.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\obj\Debug\IntroductionToCSharp.exe
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\obj\Debug\IntroductionToCSharp.pdb
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary1.dll
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary1.pdb
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\obj\Debug\IntroductionToCSharp.csproj.CopyComplete
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary2.dll
+D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary2.pdb

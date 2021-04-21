@@ -1,0 +1,10 @@
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\bin\Debug\AddServiceHost.exe.config
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\bin\Debug\AddServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\bin\Debug\AddServiceHost.pdb
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\bin\Debug\AddWCFService.dll
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\bin\Debug\AddWCFService.pdb
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\bin\Debug\AddWCFService.dll.config
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\obj\Debug\AddServiceHost.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\obj\Debug\AddServiceHost.csproj.CopyComplete
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\obj\Debug\AddServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson3AddService\AddServiceHost\obj\Debug\AddServiceHost.pdb

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:os="http://www.mulesoft.org/schema/mule/os"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<os:object-store name="my_object_store" doc:name="Object store" doc:id="2f584ef2-20cc-4eff-a236-f56ba1768cf5" />
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="edd2cee2-a049-466a-b9c0-6b6ae870333b" >
+		<db:my-sql-connection host="localhost" port="3306" user="root" password="root" database="sakila" />
+	</db:config>
+	<flow name="handmadewatermarkusingobjecstoreFlow" doc:id="f69c8dbe-65cb-41e7-85c6-f99dfe50c0a3" >
+		<scheduler doc:name="Scheduler" doc:id="e595a228-db1b-411d-a09e-2477470942fb" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+		</scheduler>
+		<os:retrieve doc:name="Retrieve" doc:id="cd9c59ab-4f58-4530-abaa-532d41e723db" key="lastest_film_id" objectStore="my_object_store" target="lastest_film_id">
+			<os:default-value ><![CDATA[0]]></os:default-value>
+		</os:retrieve>
+		<logger level="INFO" doc:name="Logger" doc:id="6633b1cb-344b-48b2-8a30-5ed6ac9dd9d3" message="#[payload]"/>
+		<db:select doc:name="Select" doc:id="762e03f0-29a4-4b58-9675-2e64d59be8ce" config-ref="Database_Config">
+			<db:sql><![CDATA[select * from film_text where film_id >:last_film_id]]></db:sql>
+			<db:input-parameters><![CDATA[#[%dw 2.0
+output application/java
+---
+{
+	last_film_id: vars.lastest_film_id as String
+}]]]></db:input-parameters>
+		</db:select>
+		<choice doc:name="Choice" doc:id="1d716622-00e7-4f1f-81ae-490eb3a6469c" >
+			<when expression="#[not isEmpty(payload)]">
+				<ee:transform doc:name="Transform Message" doc:id="ad300bad-7632-42d7-8db6-206dbe329f8a" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="af102079-cd65-49e1-9624-c5e130c8d401" message="#[payload]"/>
+				<os:store doc:name="Store" doc:id="9c293ccc-86bb-4ddc-aaae-9624d19962f8" key="lastest_film_id" objectStore="my_object_store">
+					<os:value ><![CDATA[#[max(payload.film_id)]]]></os:value>
+				</os:store>
+			</when>
+			<otherwise >
+				<logger level="INFO" doc:name="Logger" doc:id="915a2b11-6882-4594-8df2-c3c8e31f4ef1" message="#['No new rows']"/>
+			</otherwise>
+		</choice>
+	</flow>
+</mule>

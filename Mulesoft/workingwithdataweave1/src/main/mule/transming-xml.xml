@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="transming-xmlFlow" doc:id="38ac38b1-f2db-40d2-a7f8-750f9f1c5a4f" >
+		<http:listener doc:name="Listener" doc:id="5002fb1e-9eeb-49a9-95b0-19532ab92681" config-ref="HTTP_Listener_config" path="/transformxml"/>
+		<ee:transform doc:name="Transform Message" doc:id="ad1fa0e1-16f9-45d8-b6b4-7b7b57116cb3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[//%dw 2.0
+//output application/java
+//when we transfer xml to java, the only one product is shown.
+//this is because in java form we have the LinkedHashmap with key being 
+//prod and we know that in map if key is 
+//same the value will get overridden in case of updates.
+
+
+/*
+ * if there is any name space
+ * you should givelike below
+ * ns myns namespacevalue
+ * 
+ */
+//---
+//payload.catalog.*book //shows all books
+/*
+ * payload.catalog.book //shows only the latest because rest get overwritten 
+due to resultant form being a map*/
+
+
+
+/*lets convert to dw */
+//%dw 2.0
+//output application/dw
+//---
+//payload //this is fine
+
+/*
+%dw 2.0
+output application/json
+---
+payload
+*/
+
+//Java typecasting in Java
+
+/*
+%dw 2.0
+output application/java
+type mydate = Date {format: "yyyy-MM-dd"}
+---
+payload.catalog.*book map{
+	author:$.author as String,
+	title: $.title as String,
+	genre: $.genre as String,
+	price: $.price as Number,
+	publishing_date: $.publish_date as mydate,
+	description: $.description as String,
+	bookid:$.@id as String
+	} 
+	 */
+	%dw 2.0
+output application/json
+type mydate = Date {format: "yyyy-MM-dd"}
+---
+payload.catalog.*book map{
+	author:$.author as String,
+	title: $.title as String,
+	genre: $.genre as String,
+	price: $.price as Number,
+	publishing_date: $.publish_date as mydate,
+	description: $.description as String,
+	bookid:$.@id as String
+	} 
+	
+	
+	]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="311ad11d-0a47-46e3-ad84-b92e4b00113d" message="#[payload]"/>
+	</flow>
+</mule>

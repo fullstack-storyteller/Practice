@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloService\bin\Debug\HelloService.dll.config
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloService\bin\Debug\HelloService.dll
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloService\bin\Debug\HelloService.pdb
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloService\obj\Debug\HelloService.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloService\obj\Debug\HelloService.dll
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloService\obj\Debug\HelloService.pdb

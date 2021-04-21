@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a15b14fb-8f3c-4bed-968e-ba45a1a0fa6f" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="mule-batch-processingFlow" doc:id="0cd9d820-4f36-4e1d-aacf-856e7f6c9ff1" >
+		<http:listener doc:name="Listener" doc:id="90a5a201-273c-4043-bc37-15644034cc8c" config-ref="HTTP_Listener_config" path="/test"/>
+		<ee:transform doc:name="Transform Message" doc:id="4003507e-7fc0-46f8-8bea-3cf3b52d12f2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+[
+	1, 2, 3, 4, 5, 6, 7, 8, 9,
+	10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+	22, 23, 24, 25, 26, 27,28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+	41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+	60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75,
+	76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
+	92, 93, 94, 95, 96, 97, 98, 99, 100
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<batch:job jobName="mule-batch" doc:id="1788b282-bbfb-4724-a4b5-6bd8e267baa3" maxFailedRecords="50" blockSize="25">
+			<batch:process-records >
+				<batch:step name="Step-1" doc:id="6a46b387-e676-4aea-89af-4a69ca4f63ed" >
+					<logger level="INFO" doc:name="Logger" doc:id="5a61f3e1-7170-4878-aaa9-f5f36a40cc24" message="in step-1 #[payload]"/>
+				</batch:step>
+				<batch:step name="Step-2" doc:id="18982ebe-47c5-4f3d-89c5-a85105d935ef" acceptExpression="#[(payload mod 2)==0]">
+					<logger level="INFO" doc:name="Logger" doc:id="f1f1480e-c31d-4e0d-a0f1-316e22263e7d" message="in Step-2 #[payload]"/>
+					<batch:aggregator doc:name="Batch Aggregator" doc:id="6346cb78-a8c7-4d45-a0f0-18284d5cb804" size="7">
+						<logger level="INFO" doc:name="Logger" doc:id="3df66353-18a4-4f43-bfee-d2c733c00352" message="#[{'Logger in batch aggregator - Step 2: ': payload}]"/>
+					</batch:aggregator>
+				</batch:step>
+				<batch:step name="Step-3" doc:id="128d481d-b7f2-4da9-b2d5-4c93ee204658" acceptPolicy="ALL">
+					<logger level="INFO" doc:name="Logger" doc:id="c9cd76bd-a9a6-4c3a-a93c-a7db49419c0e" />
+				</batch:step>
+			</batch:process-records>
+			<batch:on-complete >
+				<logger level="INFO" doc:name="Logger" doc:id="58ab8782-2a57-40c6-bb25-030309325827" message="#['In on-complete total processed records '++ payload.processedRecords]"/>
+			</batch:on-complete>
+		</batch:job>
+	</flow>
+</mule>

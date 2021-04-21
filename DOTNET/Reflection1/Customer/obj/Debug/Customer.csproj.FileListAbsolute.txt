@@ -1,0 +1,5 @@
+D:\GitHUB\Practice\DOTNET\Reflection1\Customer\bin\Debug\Customer.dll
+D:\GitHUB\Practice\DOTNET\Reflection1\Customer\bin\Debug\Customer.pdb
+D:\GitHUB\Practice\DOTNET\Reflection1\Customer\obj\Debug\Customer.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\Reflection1\Customer\obj\Debug\Customer.dll
+D:\GitHUB\Practice\DOTNET\Reflection1\Customer\obj\Debug\Customer.pdb

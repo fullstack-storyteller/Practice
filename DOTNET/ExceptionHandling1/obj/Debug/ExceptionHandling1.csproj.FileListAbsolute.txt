@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\ExceptionHandling1\bin\Debug\ExceptionHandling1.exe.config
+D:\GitHUB\Practice\DOTNET\ExceptionHandling1\bin\Debug\ExceptionHandling1.exe
+D:\GitHUB\Practice\DOTNET\ExceptionHandling1\bin\Debug\ExceptionHandling1.pdb
+D:\GitHUB\Practice\DOTNET\ExceptionHandling1\obj\Debug\ExceptionHandling1.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\ExceptionHandling1\obj\Debug\ExceptionHandling1.exe
+D:\GitHUB\Practice\DOTNET\ExceptionHandling1\obj\Debug\ExceptionHandling1.pdb

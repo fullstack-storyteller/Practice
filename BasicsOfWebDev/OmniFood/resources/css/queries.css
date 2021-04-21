@@ -1,0 +1,350 @@
+/* always define the largest resolution first */
+/* first the design specification on the top will be applied , then it will go down below untill max width is not satisfied.
+Hence, top down.
+Last satisfied css design will be seen in the screen
+*/
+
+/*screensizes 1024 to 1150px and above*/
+@media only screen and (max-width: 1150px) {
+  .text-over-header {
+    width: 100%;
+    padding: 0 2% 0 2%;
+  }
+  .logo {
+    height: 100px;
+    margin-top: 45px;
+    padding-left: 1%;
+  }
+  .main-nav {
+    margin-right: 10%;
+  }
+  .main-nav li {
+    padding: 5px 5px 10px 5px;
+  }
+  .main-nav li a {
+    padding: 0;
+  }
+  .row {
+    width: 100%;
+  }
+
+  .work-step div {
+    height: 45px;
+    width: 45px;
+    padding: 4px;
+    font-size: 140%;
+    text-align: center;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .plan-per-month {
+    font-size: 280%;
+  }
+  .plan-per-month span {
+    font-size: 30%;
+    font-weight: 300;
+  }
+  .work-step {
+    margin-top: 40px;
+  }
+  .steps-box :last-child {
+    margin-top: 30px;
+  }
+  .work-step p {
+    width: 400px;
+  }
+
+  .plan-box ion-icon {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .contact-form,
+  .plan-box {
+    box-shadow: 10px 10px 10px #e4e4e4;
+  }
+}
+
+/*screensizes 768 to 1023px*/
+@media only screen and (max-width: 1023px) {
+  body {
+    font-size: 18px;
+  }
+  section {
+    padding: 60px 0 60px 0;
+  }
+  h1 {
+    font-size: 220%;
+  }
+  h2 {
+    font-size: 160%;
+  }
+  h3 {
+    font-size: 100%;
+  }
+  .main-nav {
+    margin-right: 1%;
+    
+  }
+  .main-nav li {
+    padding: 3px 1px 10px 1px;
+  }
+  .main-nav li a {
+    padding: 0;
+    font-size: 70%;
+  }
+  .logo {
+    height: 50px;
+    margin-top: 40px;
+    padding-left: 1%;
+  }
+
+  .sticky {
+    padding: 0;
+    box-shadow: 0 1px 1px #e4e4e4;
+  }
+  .sticky .main-nav li {
+    padding: 2px 1px;
+  }
+  .sticky .main-nav li a {
+    padding: 0;
+    /* font-size: 50%; */
+  }
+
+  .logo-black {
+    height: 40px;
+    margin-top: 10px;
+    padding-left: 1%;
+    padding-bottom: 0;
+  }
+
+  .long-copyright {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .box p {
+    font-size: 85%;
+  }
+  .navigation-links li,
+  .social-links li {
+    margin: 5px;
+  }
+  .plan-box ion-icon {
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+  .plan-per-month {
+    font-size: 200%;
+  }
+  .plan-box li {
+    margin-bottom: 10px;
+    font-size: 80%;
+  }
+
+  .work-step {
+    margin-top: 20px;
+  }
+  .steps-box :last-child {
+    margin-top: 15px;
+  }
+  .work-step p {
+    width: 350px;
+  }
+  .download-app img {
+    height: 30px;
+  }
+  .city-box-icon {
+    margin-right: 1%;
+    width: 20px;
+    font-size: 100%;
+    line-height: 120%;
+  }
+  .city-details li {
+    font-size: 90%;
+  }
+}
+
+/*screensizes 481 to 767px*/
+@media only screen and (max-width: 767px) {
+  .main-nav {
+    float: left;
+    margin-top: 20px;
+    margin-left: 25%;
+    font-size: 90%;
+    display: none;
+  }
+  .sticky .main-nav {
+    font-size: 100%;
+  }
+  .main-nav li {
+    display: block;
+    border-bottom: 0;
+    padding: 4px 2px;
+  }
+  .main-nav li a:active,
+  .main-nav li a:hover,
+  .main-nav li a:link,
+  .main-nav li a:visited {
+    border-bottom: 0;
+  }
+  .sticky .main-nav {
+    margin-left: 40%;
+  }
+  .sticky .main-nav li a:active,
+  .sticky .main-nav li a:hover,
+  .sticky .main-nav li a:link,
+  .sticky .main-nav li a:visited {
+    border-bottom: 0;
+  }
+  .mobile-nav {
+    display: block;
+    float: right;
+  }
+  .mobile-nav-icon {
+    font-size: 250%;
+  }
+  .open {
+    display: inline-block;
+  }
+
+  .logo {
+    height: 120px;
+    margin-top: 20px;
+  }
+  body {
+    font-size: 16px;
+  }
+  section {
+    padding: 30px 0;
+  }
+  .text-over-header,
+  .row {
+    padding: 0 1% 0 1%;
+  }
+  .box p,
+  .long-copyright {
+    line-height: 140%;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+  }
+  .col {
+    width: 100%;
+    margin: 0 0 5% 0;
+  }
+  .box .feature-icon {
+    font-size: 330%;
+    margin: 0 30% 25px 15%;
+  }
+  h1 {
+    font-size: 180%;
+  }
+  h2 {
+    font-size: 150%;
+  }
+  .work-step p {
+    width: 100%;
+  }
+  .work-step div {
+    height: 40px;
+    width: 40px;
+    /* padding: 2% 5%; */
+    padding: 1% 1%;
+    font-size: 100%;
+    margin-right: 20px;
+    margin-left: 10%;
+    text-align: center;
+  }
+
+  .plan-box ion-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
+  .plan-per-month {
+    font-size: 300%;
+    text-align: center;
+  }
+  .plan-per-meal {
+    text-align: center;
+  }
+  .plan-box li {
+    margin-bottom: 10px;
+    font-size: 80%;
+    padding-left: 25%;
+  }
+  .steps-box .phone-pic img {
+    margin-right: 25%;
+  }
+  .download-app img {
+    margin-left: 10%;
+  }
+
+  .contact-form {
+    width: 90%;
+    padding: 15px;
+    box-shadow: 10px 10px 10px #e4e4e4;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 80%;
+  }
+}
+
+/*small screens 0 to 480px*/
+@media only screen and (max-width: 480px) {
+  .plan-box ion-icon {
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+  .plan-per-month {
+    font-size: 200%;
+  }
+  .plan-box li {
+    margin-bottom: 5px;
+    font-size: 60%;
+    padding-left: 5%;
+  }
+
+  .work-step p {
+    font-size: 75%;
+  }
+  button {
+    padding: 5px 15px 5px 15px;
+    font-size: 90%;
+  }
+  .logo {
+    height: 70px;
+    margin-top: 20px;
+  }
+  section {
+    padding: 25px 0;
+  }
+  h1 {
+    font-size: 140%;
+    word-spacing: 1px;
+  }
+  h2 {
+    font-size: 120%;
+    word-spacing: 1px;
+  }
+  h3 {
+    font-size: 90%;
+  }
+  .contact-form {
+    width: 100%;
+  }
+  .work-step div {
+    height: 30px;
+    width: 30px;
+    /* padding: 2% 5%; */
+    padding: 1% 1%;
+    font-size: 100%;
+    margin-right: 10px;
+    margin-left: 3%;
+    text-align: center;
+  }
+}

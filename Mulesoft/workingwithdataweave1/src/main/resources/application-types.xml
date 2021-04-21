@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="myjasoninput" format="json">
+      <types:shape format="weave" example="product.json"><![CDATA[%dw 2.0
+
+type myjasoninput = {|
+  productId: Number {"typeId": "int"}, 
+  name: String, 
+  description: String, 
+  originalPrice: Number {"typeId": "int"}, 
+  offer: {|
+    offerPrice: Number {"typeId": "int"}, 
+    offerValidUntil: Number {"typeId": "double"}
+  |}, 
+  brandName: String, 
+  images: Array<String>
+|} {"example": "{\\\"productId\\\":1,\\\"name\\\":\\\"Hp Pavilion laptop\\\",\\\"description\\\":\\\"Hp Laptop \\\",\\\"originalPrice\\\":1000,\\\"offer\\\":{\\\"offerPrice\\\":1000,\\\"offerValidUntil\\\":1467105373745},\\\"brandName\\\":\\\"HP\\\",\\\"images\\\":[\\\"image1.jpeg\\\",\\\"image2.jpeg\\\",\\\"image3.jpeg\\\"]}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="mycomplexjason" format="json">
+      <types:shape format="weave" example="products.json"><![CDATA[%dw 2.0
+
+type mycomplexjason = Array<{|  productId: Number {"typeId": "int"},   name: String,   description: String,   originalPrice: Number {"typeId": "double"},   offer: {|    offerPrice: Number {"typeId": "double"},     offerValidUntil: Number {"typeId": "double"}  |},   brandName: String,   images: Array<String>
+|}> {"example": "[{\\\"productId\\\":1,\\\"name\\\":\\\"Hp Pavilion laptop\\\",\\\"description\\\":\\\"Hp Laptop \\\",\\\"originalPrice\\\":1000.0,\\\"offer\\\":{\\\"offerPrice\\\":1000.0,\\\"offerValidUntil\\\":1603807942991},\\\"brandName\\\":\\\"HP\\\",\\\"images\\\":[\\\"image1.jpeg\\\",\\\"image2.jpeg\\\",\\\"image3.jpeg\\\"]},{\\\"productId\\\":2,\\\"name\\\":\\\"Macbook Pro laptop\\\",\\\"description\\\":\\\"Apple Laptop \\\",\\\"originalPrice\\\":3000.0,\\\"offer\\\":{\\\"offerPrice\\\":3000.0,\\\"offerValidUntil\\\":1603807943075},\\\"brandName\\\":\\\"Apple\\\",\\\"images\\\":[\\\"image3.jpeg\\\",\\\"image4.jpeg\\\",\\\"image5.jpeg\\\"]},{\\\"productId\\\":3,\\\"name\\\":\\\"Mac Book  laptop\\\",\\\"description\\\":\\\"Apple Laptop \\\",\\\"originalPrice\\\":2000.0,\\\"offer\\\":{\\\"offerPrice\\\":2000.0,\\\"offerValidUntil\\\":1603807943075},\\\"brandName\\\":\\\"Apple\\\",\\\"images\\\":[\\\"image6.jpeg\\\",\\\"image7.jpeg\\\",\\\"image8.jpeg\\\"]},{\\\"productId\\\":4,\\\"name\\\":\\\"IBM laptop\\\",\\\"description\\\":\\\"IBM Laptop \\\",\\\"originalPrice\\\":4000.0,\\\"offer\\\":{\\\"offerPrice\\\":4000.0,\\\"offerValidUntil\\\":1603807943075},\\\"brandName\\\":\\\"IBM\\\",\\\"images\\\":[\\\"image9.jpeg\\\",\\\"image10.jpeg\\\",\\\"image11.jpeg\\\"]},{\\\"productId\\\":5,\\\"name\\\":\\\"MotoX Mobile\\\",\\\"description\\\":\\\"Motorola Mobile \\\",\\\"originalPrice\\\":1000.0,\\\"offer\\\":{\\\"offerPrice\\\":1000.0,\\\"offerValidUntil\\\":1603807943080},\\\"brandName\\\":\\\"Motorola\\\",\\\"images\\\":[\\\"image12.jpeg\\\",\\\"image13.jpeg\\\",\\\"image14.jpeg\\\"]},{\\\"productId\\\":6,\\\"name\\\":\\\"Samsung Note 5\\\",\\\"description\\\":\\\"Samsung Mobile \\\",\\\"originalPrice\\\":5000.0,\\\"offer\\\":{\\\"offerPrice\\\":5000.0,\\\"offerValidUntil\\\":1603807943082},\\\"brandName\\\":\\\"Samsung\\\",\\\"images\\\":[\\\"image15.jpeg\\\",\\\"image16.jpeg\\\",\\\"image17.jpeg\\\"]}]"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="myxml" format="xml">
+      <types:example format="xml" element="catalog" location="examples/books.xml"/>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#b53dc4d3-a164-4366-a308-2dbc9e9ce8b5">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="myjasoninput"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#79e6afcb-0525-4fb0-b7dc-d9c1cc5084d5">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="mycomplexjason"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#546053f6-63a8-46ae-9378-6c551691142e">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="mycomplexjason"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#ad1fa0e1-16f9-45d8-b6b4-7b7b57116cb3">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="myxml"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

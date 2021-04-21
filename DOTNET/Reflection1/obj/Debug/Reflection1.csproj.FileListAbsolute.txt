@@ -1,0 +1,9 @@
+D:\GitHUB\Practice\DOTNET\Reflection1\bin\Debug\Reflection1.exe.config
+D:\GitHUB\Practice\DOTNET\Reflection1\bin\Debug\Reflection1.exe
+D:\GitHUB\Practice\DOTNET\Reflection1\bin\Debug\Reflection1.pdb
+D:\GitHUB\Practice\DOTNET\Reflection1\obj\Debug\Reflection1.exe
+D:\GitHUB\Practice\DOTNET\Reflection1\obj\Debug\Reflection1.pdb
+D:\GitHUB\Practice\DOTNET\Reflection1\bin\Debug\Customer.dll
+D:\GitHUB\Practice\DOTNET\Reflection1\bin\Debug\Customer.pdb
+D:\GitHUB\Practice\DOTNET\Reflection1\obj\Debug\Reflection1.csproj.CopyComplete
+D:\GitHUB\Practice\DOTNET\Reflection1\obj\Debug\Reflection1.csprojAssemblyReference.cache

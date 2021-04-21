@@ -1,0 +1,6 @@
+D:\Practice\DOTNET\MyFirstProject\bin\Debug\MyFirstProject.exe.config
+D:\Practice\DOTNET\MyFirstProject\bin\Debug\MyFirstProject.exe
+D:\Practice\DOTNET\MyFirstProject\bin\Debug\MyFirstProject.pdb
+D:\Practice\DOTNET\MyFirstProject\obj\Debug\MyFirstProject.csprojAssemblyReference.cache
+D:\Practice\DOTNET\MyFirstProject\obj\Debug\MyFirstProject.exe
+D:\Practice\DOTNET\MyFirstProject\obj\Debug\MyFirstProject.pdb

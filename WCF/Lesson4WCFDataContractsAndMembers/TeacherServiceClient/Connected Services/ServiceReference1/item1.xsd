@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TeacherObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TeacherObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8090/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8090/?xsd=xsd2" namespace="https://manish.kumar.net/TeacherItem/03/01/2020" />
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailable">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+      <xs:enumeration value="Others" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:simpleType name="EmployeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotProvided">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FullTimeTeacher" />
+      <xs:enumeration value="PartTimeTeacher" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EmployeeType" nillable="true" type="tns:EmployeeType" />
+  <xs:complexType name="PartTimeTeacher">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="https://manish.kumar.net/TeacherItem/03/01/2020" base="q1:TeacherItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HourlyPay" type="xs:int" />
+          <xs:element minOccurs="0" name="HoursWorked" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartTimeTeacher" nillable="true" type="tns:PartTimeTeacher" />
+  <xs:complexType name="FullTimeTeacher">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="https://manish.kumar.net/TeacherItem/03/01/2020" base="q2:TeacherItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnnualPackage" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullTimeTeacher" nillable="true" type="tns:FullTimeTeacher" />
+</xs:schema>

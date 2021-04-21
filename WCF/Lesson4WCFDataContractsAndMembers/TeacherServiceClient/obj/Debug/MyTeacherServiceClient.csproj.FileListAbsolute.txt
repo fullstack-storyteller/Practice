@@ -1,0 +1,3 @@
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceClient\obj\Debug\MyTeacherServiceClient.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceClient\obj\Debug\TeacherServiceClient.dll
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherServiceClient\obj\Debug\TeacherServiceClient.pdb

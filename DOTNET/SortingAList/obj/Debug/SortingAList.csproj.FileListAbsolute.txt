@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\SortingAList\bin\Debug\SortingAList.exe.config
+D:\GitHUB\Practice\DOTNET\SortingAList\bin\Debug\SortingAList.exe
+D:\GitHUB\Practice\DOTNET\SortingAList\bin\Debug\SortingAList.pdb
+D:\GitHUB\Practice\DOTNET\SortingAList\obj\Debug\SortingAList.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\SortingAList\obj\Debug\SortingAList.exe
+D:\GitHUB\Practice\DOTNET\SortingAList\obj\Debug\SortingAList.pdb

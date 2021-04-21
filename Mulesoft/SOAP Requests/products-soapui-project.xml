@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2694c1e4-bb12-4f0e-991e-1b4e1c80bd4b" activeEnvironment="Default" name="products" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="838032a5-c7b9-4ae5-959f-84fd7ca80d9d" wsaVersion="NONE" name="ProductServicePortSoap11" type="wsdl" bindingName="{http//way2learnonline.com/productservice}ProductServicePortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:6060/soap/ws/products.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:6060/soap/ws/products.wsdl"><con:part><con:url>http://localhost:6060/soap/ws/products.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http//way2learnonline.com/productservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http//way2learnonline.com/domain" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http//way2learnonline.com/productservice">
+  <wsdl:types>
+    <xs:schema targetNamespace="http//way2learnonline.com/domain" version="1.0" xmlns:tns="http//way2learnonline.com/domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAllProductsRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllProductsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="products">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="1" name="product" type="tns:product"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getProductsByNameRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getProductsByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="products">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" minOccurs="1" name="product" type="tns:product"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addProductRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="product" type="tns:product"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="product" type="tns:product"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="offer">
+        <xs:sequence>
+          <xs:element name="offerPrice" type="xs:double"/>
+          <xs:element minOccurs="0" name="offerValidUntil" type="xs:date"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="brandName" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element name="images">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="image" type="xs:string"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="offer" type="tns:offer"/>
+          <xs:element name="originalPrice" type="xs:double"/>
+          <xs:element minOccurs="0" name="productId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllProductsRequest">
+    <wsdl:part element="sch:getAllProductsRequest" name="getAllProductsRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductsResponse">
+    <wsdl:part element="sch:getAllProductsResponse" name="getAllProductsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addProductRequest">
+    <wsdl:part element="sch:addProductRequest" name="addProductRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addProductResponse">
+    <wsdl:part element="sch:addProductResponse" name="addProductResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductsByNameResponse">
+    <wsdl:part element="sch:getProductsByNameResponse" name="getProductsByNameResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductsByNameRequest">
+    <wsdl:part element="sch:getProductsByNameRequest" name="getProductsByNameRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductServicePort">
+    <wsdl:operation name="getAllProducts">
+      <wsdl:input message="tns:getAllProductsRequest" name="getAllProductsRequest"></wsdl:input>
+      <wsdl:output message="tns:getAllProductsResponse" name="getAllProductsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <wsdl:input message="tns:addProductRequest" name="addProductRequest"></wsdl:input>
+      <wsdl:output message="tns:addProductResponse" name="addProductResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductsByName">
+      <wsdl:input message="tns:getProductsByNameRequest" name="getProductsByNameRequest"></wsdl:input>
+      <wsdl:output message="tns:getProductsByNameResponse" name="getProductsByNameResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductServicePortSoap11" type="tns:ProductServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllProducts">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAllProductsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllProductsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addProductRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addProductResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductsByName">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getProductsByNameRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProductsByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductServicePortService">
+    <wsdl:port binding="tns:ProductServicePortSoap11" name="ProductServicePortSoap11">
+      <soap:address location="http://localhost:6060/soap/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:6060/soap/ws</con:endpoint></con:endpoints><con:operation id="fdbf0af7-733b-4515-8746-7af4ad7be57e" isOneWay="false" action="" name="addProduct" bindingOperationName="addProduct" type="Request-Response" outputName="addProductResponse" inputName="addProductRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2cd8e255-789f-419b-9110-c533fd0efa9f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:6060/soap/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dom="http//way2learnonline.com/domain">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dom:addProductRequest>\r
+         <product>\r
+            <!--Optional:-->\r
+            <brandName>?</brandName>\r
+            <!--Optional:-->\r
+            <description>?</description>\r
+            <images>\r
+               <!--Zero or more repetitions:-->\r
+               <image>?</image>\r
+            </images>\r
+            <!--Optional:-->\r
+            <name>?</name>\r
+            <!--Optional:-->\r
+            <offer>\r
+               <offerPrice>?</offerPrice>\r
+               <!--Optional:-->\r
+               <offerValidUntil>?</offerValidUntil>\r
+            </offer>\r
+            <originalPrice>?</originalPrice>\r
+            <!--Optional:-->\r
+            <productId>?</productId>\r
+         </product>\r
+      </dom:addProductRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http//way2learnonline.com/productservice/ProductServicePort/addProductRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6257c057-d894-41b6-9d59-7f976688600f" isOneWay="false" action="" name="getAllProducts" bindingOperationName="getAllProducts" type="Request-Response" outputName="getAllProductsResponse" inputName="getAllProductsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0f7b16ac-5392-4df1-978c-950338493ade" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:6060/soap/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dom="http//way2learnonline.com/domain">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dom:getAllProductsRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http//way2learnonline.com/productservice/ProductServicePort/getAllProductsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="071f6a85-7ac9-4e58-b4a6-27135dfbc13c" isOneWay="false" action="" name="getProductsByName" bindingOperationName="getProductsByName" type="Request-Response" outputName="getProductsByNameResponse" inputName="getProductsByNameRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9ab0c81a-f3e7-4c3d-84e5-71168443b26c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:6060/soap/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dom="http//way2learnonline.com/domain">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <dom:getProductsByNameRequest>\r
+         <name>Hp</name>\r
+      </dom:getProductsByNameRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http//way2learnonline.com/productservice/ProductServicePort/getProductsByNameRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="6da87174-60bd-463e-9c15-e19f7faf08d6" wsaVersion="NONE" name="BasicHttpBinding_IHelloServiceWCF" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_IHelloServiceWCF" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/?wsdl"><con:part><con:url>http://localhost:8080/?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="HelloServiceWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+  <wsp:Policy wsu:Id="NetTcpBinding_IHelloServiceWCF_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1"/>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHelloServiceWCF_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage"/>
+  </wsdl:message>
+  <wsdl:message name="IHelloServiceWCF_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IHelloServiceWCF">
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHelloServiceWCF/GetMessage" message="tns:IHelloServiceWCF_GetMessage_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IHelloServiceWCF/GetMessageResponse" message="tns:IHelloServiceWCF_GetMessage_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHelloServiceWCF" type="tns:IHelloServiceWCF">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://tempuri.org/IHelloServiceWCF/GetMessage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IHelloServiceWCF" type="tns:IHelloServiceWCF">
+    <wsp:PolicyReference URI="#NetTcpBinding_IHelloServiceWCF_policy"/>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp"/>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://tempuri.org/IHelloServiceWCF/GetMessage" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloServiceWCF">
+    <wsdl:port name="BasicHttpBinding_IHelloServiceWCF" binding="tns:BasicHttpBinding_IHelloServiceWCF">
+      <soap:address location="http://localhost:8080/HelloService"/>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IHelloServiceWCF" binding="tns:NetTcpBinding_IHelloServiceWCF">
+      <soap12:address location="net.tcp://localhost:8090/HelloService"/>
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/HelloService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>MANISH\manis</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:element name="GetMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMessageResult" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8080/?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/HelloService</con:endpoint></con:endpoints><con:operation id="479e1334-2a4c-479c-a74a-f4e09edb78f5" isOneWay="false" action="http://tempuri.org/IHelloServiceWCF/GetMessage" name="GetMessage" bindingOperationName="GetMessage" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="13bd78a2-e49c-4879-97a0-14e020abcf8f" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/HelloService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMessage xmlns:tem="http://tempuri.org/">
+         <!--Optional:-->
+         <tem:name>attributes</tem:name>
+      </tem:GetMessage>
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IHelloServiceWCF/GetMessage"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

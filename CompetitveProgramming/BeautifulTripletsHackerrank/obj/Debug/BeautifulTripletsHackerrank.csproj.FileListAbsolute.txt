@@ -1,0 +1,7 @@
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\bin\Debug\BeautifulTripletsHackerrank.exe.config
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\bin\Debug\BeautifulTripletsHackerrank.exe
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\bin\Debug\BeautifulTripletsHackerrank.pdb
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\obj\Debug\BeautifulTripletsHackerrank.csprojAssemblyReference.cache
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\obj\Debug\BeautifulTripletsHackerrank.csproj.CoreCompileInputs.cache
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\obj\Debug\BeautifulTripletsHackerrank.exe
+D:\GitHUB\Practice\CompetitveProgramming\BeautifulTripletsHackerrank\obj\Debug\BeautifulTripletsHackerrank.pdb

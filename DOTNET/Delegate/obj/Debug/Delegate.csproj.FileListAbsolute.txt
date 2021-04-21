@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\Delegate\bin\Debug\Delegate.exe.config
+D:\GitHUB\Practice\DOTNET\Delegate\bin\Debug\Delegate.exe
+D:\GitHUB\Practice\DOTNET\Delegate\bin\Debug\Delegate.pdb
+D:\GitHUB\Practice\DOTNET\Delegate\obj\Debug\Delegate.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\Delegate\obj\Debug\Delegate.exe
+D:\GitHUB\Practice\DOTNET\Delegate\obj\Debug\Delegate.pdb

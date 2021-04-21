@@ -1,0 +1,10 @@
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\obj\Debug\HelloServiceHost.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\bin\Debug\HelloServiceHost.exe.config
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\bin\Debug\HelloServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\bin\Debug\HelloServiceHost.pdb
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\bin\Debug\HelloService.dll
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\bin\Debug\HelloService.pdb
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\bin\Debug\HelloService.dll.config
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\obj\Debug\HelloServiceHost.csproj.CopyComplete
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\obj\Debug\HelloServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson2WCF\HelloServiceHost\obj\Debug\HelloServiceHost.pdb

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="bd15666b-23fe-4dcd-8e47-4e2577b67f41" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="munitFlow" doc:id="afb8e20a-4785-45cc-86a9-18c025f86280" >
+		<http:listener doc:name="Listener" doc:id="c2864626-3aa4-4bcd-bd18-12759ce41508" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="#['dummy']" doc:name="dummy-set-payload" doc:id="bc84f9ca-407c-4aaa-b2aa-c046924a4b83" />
+		<set-payload value="#[attributes.queryParams.urlkey]" doc:name="actual-set-payload" doc:id="2f0d1119-c971-4b6b-9c46-2feac19187a5" />
+		<flow-ref doc:name="choose-variable" doc:id="a8bf58f6-cf29-4f01-a209-321379069775" name="choose-variable"/>
+		<choice doc:name="Choice" doc:id="dc548c67-19cb-4ff1-8f63-5278c2aea515" >
+			<when expression="#[vars.myvariable=='variable1']">
+				<set-payload value="#['response_payload_1']" doc:name="Set Payload" doc:id="7acb0324-e93f-4797-9ce6-37cda4131f4f" />
+			</when>
+			<otherwise >
+				<set-payload value="#['response_payload_2']" doc:name="Set Payload" doc:id="a8ad40db-1834-4291-9c2f-7e86732fc4cf" />
+			</otherwise>
+		</choice>
+	</flow>
+	<flow name="choose-variable" doc:id="5932f3ff-b2e4-4ae8-b7f1-19c69fea9c77" >
+		<choice doc:name="Choice" doc:id="67ecef71-881f-46f5-ad3b-d18049b18d00" >
+			<when expression="#[payload=='payload_1']">
+				<flow-ref doc:name="subflow1" doc:id="37b15b26-74e5-4da9-b9cc-3c0ab092709d" name="subflow1"/>
+			</when>
+			<otherwise>
+				<flow-ref doc:name="subflow2" doc:id="0fc451fb-b965-4a8d-aa34-b047b5ca94a5" name="subflow2"/>
+			</otherwise>
+		</choice>
+	</flow>
+	<flow name="subflow1" doc:id="198d6d9a-173a-4620-96f7-f3d0b4425d41" >
+		<set-variable value="variable1" doc:name="Set Variable" doc:id="22ff43ec-2f60-45f9-a98f-230f8a4f5aec" variableName="myvariable"/>
+	</flow>
+	<flow name="subflow2" doc:id="a55cd9d7-50aa-41b7-9acc-d57a935ca482" >
+		<set-variable value="variable2" doc:name="Set Variable" doc:id="625b2b5d-a152-4455-b14d-1ab347dff075" variableName="myvariable"/>
+	</flow>
+</mule>

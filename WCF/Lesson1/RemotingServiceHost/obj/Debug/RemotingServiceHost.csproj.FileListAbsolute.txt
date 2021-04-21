@@ -1,0 +1,11 @@
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\RemotingServiceHost.exe.config
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\RemotingServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\RemotingServiceHost.pdb
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\HelloRemotingService.dll
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\IHelloRemotingService.dll
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\HelloRemotingService.pdb
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\bin\Debug\IHelloRemotingService.pdb
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\obj\Debug\RemotingServiceHost.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\obj\Debug\RemotingServiceHost.csproj.CopyComplete
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\obj\Debug\RemotingServiceHost.exe
+D:\GitHUB\Practice\WCF\Lesson1\RemotingServiceHost\obj\Debug\RemotingServiceHost.pdb

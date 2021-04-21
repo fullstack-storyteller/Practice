@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration_rest" doc:name="HTTP Request configuration" doc:id="1f136c2c-1240-409c-b692-d86f865ae237" basePath="/rest" >
+		<http:request-connection host="localhost" port="7070" />
+	</http:request-config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="53dda930-eb57-45c8-a19d-3ff5fb2d49d0" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="mainflow" doc:id="03f1d7de-5a3d-4555-aad7-f4454ec41b90" >
+		<http:listener doc:name="Listener" doc:id="12228d29-2001-4b11-ad66-f39c8e978b00" config-ref="HTTP_Listener_config" path="/myproducts"/>
+		<choice doc:name="Choice" doc:id="c9f54078-d504-4216-948e-a282c1716838" >
+			<when expression="#[message.attributes.method=='GET' and message.attributes.queryParams.productname != null]">
+				<flow-ref doc:name="get products by name" doc:id="a9d7d62c-009c-4273-b738-e63069aecb3a" name="getproductsbyname" />
+			</when>
+			<when expression="#[message.attributes.method=='GET' and message.attributes.queryParams.productname==null]">
+				<flow-ref doc:name="get all products" doc:id="581c5410-f62e-49fa-af73-c5436601b97f" name="getallproducts"/>
+			</when>
+			<when expression="#[message.attributes.method=='POST' and message.attributes.queryParams.productname==null]">
+				<flow-ref doc:name="post a product" doc:id="659e1ba5-1aa6-4e52-a7a9-460355bf0b63" name="postaproduct"/>
+			</when>
+			<otherwise >
+				<set-payload value="Invalid Request" doc:name="Set Payload" doc:id="c30b56f6-312e-42a8-98fe-9c070d2e1f00" />
+			</otherwise>
+		</choice>
+	</flow>
+	<flow name="getallproducts" doc:id="1ea534a5-b53e-4ed1-a552-84c3fb40cb19" >
+		<http:request method="GET" doc:name="Request" doc:id="56b09fd8-5627-42c0-a477-2b9d0733ccb3" config-ref="HTTP_Request_configuration_rest" path="/products"/>
+	</flow>
+	<flow name="getproductsbyname" doc:id="ea8b0633-0d37-44cb-8eeb-166956bda3db" >
+		<set-variable value="#[message.attributes.queryParams.productname]" doc:name="Set Variable" doc:id="97de1efd-0ccb-46d3-bc70-9a05ba2c301b" variableName="prodname" />
+		<http:request method="GET" doc:name="Request" doc:id="940319da-56f6-480d-bbc0-41821c5ded8a" config-ref="HTTP_Request_configuration_rest" path="/products/{pname}" doc:description="We are supplying productname in query parameter while querying from postman.
+That parameter is being read into uri parameter for the call made to rest api using our mule application.">
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	pname : vars.prodname
+}]]]></http:uri-params>
+		</http:request>
+	</flow>
+	<flow name="postaproduct" doc:id="ae575296-e33b-40af-8e68-c4505ac4f7aa" >
+		<http:request method="POST" doc:name="Request" doc:id="d3c20658-76b6-48ab-95b4-dadb01355a01" config-ref="HTTP_Request_configuration_rest" path="/products"/>
+	</flow>
+</mule>

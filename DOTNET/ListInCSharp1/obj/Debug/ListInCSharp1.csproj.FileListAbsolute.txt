@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\ListInCSharp1\bin\Debug\ListInCSharp1.exe.config
+D:\GitHUB\Practice\DOTNET\ListInCSharp1\bin\Debug\ListInCSharp1.exe
+D:\GitHUB\Practice\DOTNET\ListInCSharp1\bin\Debug\ListInCSharp1.pdb
+D:\GitHUB\Practice\DOTNET\ListInCSharp1\obj\Debug\ListInCSharp1.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\ListInCSharp1\obj\Debug\ListInCSharp1.exe
+D:\GitHUB\Practice\DOTNET\ListInCSharp1\obj\Debug\ListInCSharp1.pdb

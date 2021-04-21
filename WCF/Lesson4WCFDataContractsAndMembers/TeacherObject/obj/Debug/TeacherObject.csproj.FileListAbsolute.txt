@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherObject\bin\Debug\TeacherObject.dll
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherObject\bin\Debug\TeacherObject.pdb
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherObject\obj\Debug\TeacherObject.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherObject\obj\Debug\TeacherObject.dll
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherObject\obj\Debug\TeacherObject.pdb
+D:\GitHUB\Practice\WCF\Lesson4WCFDataContractsAndMembers\TeacherObject\obj\Debug\TeacherObject.csproj.CoreCompileInputs.cache

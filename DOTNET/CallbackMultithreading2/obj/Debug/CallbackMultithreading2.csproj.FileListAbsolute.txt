@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\CallbackMultithreading2\bin\Debug\CallbackMultithreading2.exe.config
+D:\GitHUB\Practice\DOTNET\CallbackMultithreading2\bin\Debug\CallbackMultithreading2.exe
+D:\GitHUB\Practice\DOTNET\CallbackMultithreading2\bin\Debug\CallbackMultithreading2.pdb
+D:\GitHUB\Practice\DOTNET\CallbackMultithreading2\obj\Debug\CallbackMultithreading2.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\CallbackMultithreading2\obj\Debug\CallbackMultithreading2.exe
+D:\GitHUB\Practice\DOTNET\CallbackMultithreading2\obj\Debug\CallbackMultithreading2.pdb

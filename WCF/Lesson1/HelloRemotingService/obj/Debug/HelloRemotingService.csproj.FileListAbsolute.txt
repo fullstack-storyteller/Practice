@@ -1,0 +1,8 @@
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\bin\Debug\HelloRemotingService.dll
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\bin\Debug\HelloRemotingService.pdb
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\bin\Debug\IHelloRemotingService.dll
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\bin\Debug\IHelloRemotingService.pdb
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\obj\Debug\HelloRemotingService.csprojAssemblyReference.cache
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\obj\Debug\HelloRemotingService.csproj.CopyComplete
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\obj\Debug\HelloRemotingService.dll
+D:\GitHUB\Practice\WCF\Lesson1\HelloRemotingService\obj\Debug\HelloRemotingService.pdb

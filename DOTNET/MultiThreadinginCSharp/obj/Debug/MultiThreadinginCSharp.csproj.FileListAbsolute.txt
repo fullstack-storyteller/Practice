@@ -1,0 +1,9 @@
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\bin\Debug\MultiThreadinginCSharp.exe.config
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\bin\Debug\MultiThreadinginCSharp.exe
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\bin\Debug\MultiThreadinginCSharp.pdb
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\obj\Debug\MultiThreadinginCSharp.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\obj\Debug\MultiThreadinginCSharp.Form1.resources
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\obj\Debug\MultiThreadinginCSharp.Properties.Resources.resources
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\obj\Debug\MultiThreadinginCSharp.csproj.GenerateResource.cache
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\obj\Debug\MultiThreadinginCSharp.exe
+D:\GitHUB\Practice\DOTNET\MultiThreadinginCSharp\obj\Debug\MultiThreadinginCSharp.pdb

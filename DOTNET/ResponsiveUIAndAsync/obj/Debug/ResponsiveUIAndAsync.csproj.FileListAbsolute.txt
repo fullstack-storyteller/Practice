@@ -1,0 +1,9 @@
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\bin\Debug\ResponsiveUIAndAsync.exe.config
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\bin\Debug\ResponsiveUIAndAsync.exe
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\bin\Debug\ResponsiveUIAndAsync.pdb
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\obj\Debug\ResponsiveUIAndAsync.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\obj\Debug\ResponsiveUIAndAsync.Form1.resources
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\obj\Debug\ResponsiveUIAndAsync.Properties.Resources.resources
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\obj\Debug\ResponsiveUIAndAsync.csproj.GenerateResource.cache
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\obj\Debug\ResponsiveUIAndAsync.exe
+D:\GitHUB\Practice\DOTNET\ResponsiveUIAndAsync\obj\Debug\ResponsiveUIAndAsync.pdb

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="07f67c3d-4efb-4dc3-917f-b9ea4f71812f" basePath="/rest" >
+		<http:request-connection host="localhost" port="7070" />
+	</http:request-config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f3392e2e-69b5-4d77-9121-85eb6ef2b6e0" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="f45c86fd-c699-4e0e-a5e5-1b475711150f" >
+		<db:my-sql-connection host="localhost" port="3306" user="root" password="root" database="sakila" />
+	</db:config>
+	<flow name="Listeverything" doc:id="ea447a56-9452-42e1-988a-3235b27b87bf" >
+		<http:listener doc:name="Listener" doc:id="206c131c-e66a-48ac-8ce0-2be95cc8647a" config-ref="HTTP_Listener_config" path="/all"/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="09851eb3-5b3c-46fd-9b87-76ea48818985" >
+			<route >
+				<flow-ref doc:name="callRestAPI" doc:id="939484d5-400e-4d3d-81f5-8f170ba005b9" name="restapiflow" />
+			</route>
+			<route >
+				<flow-ref doc:name="calldb" doc:id="f3317434-2c87-4438-8f7d-00b20c8d9186" name="dbcall"/>
+			</route>
+		</scatter-gather>
+		<ee:transform doc:name="Transform Message" doc:id="643c1b80-c6b5-4f26-bab4-e796e4f090f9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+flatten(payload..payload)]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="restapiflow" doc:id="a2d42e6d-8a1f-4b13-8d8c-a61a62d126ca" >
+		<http:request method="GET" doc:name="Request" doc:id="a994a23d-49ab-4222-8a02-68d012bde61e" config-ref="HTTP_Request_configuration" path="/products"/>
+		<ee:transform doc:name="Transform Message" doc:id="e0b9e163-89d1-4d09-b80d-960da1660914" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="847f2d83-d729-4bfc-8dbc-5cd7fea7645b" message="Rest API Success"/>
+	</flow>
+	<flow name="dbcall" doc:id="aafbc10d-eaa8-422f-b2b7-f754bf349a08" >
+		<db:select doc:name="Select" doc:id="34775289-4c8e-4ce9-8071-93b717e32b06" config-ref="Database_Config">
+			<db:sql ><![CDATA[select * from film_text]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="7c09886b-0007-4cc3-a437-d72fccb31576" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="d07606bf-6cf6-4178-96bd-08042da03aa4" message="DB Call Success"/>
+	</flow>
+	<flow name="firstsuccessful" doc:id="f2de0e43-1a47-44a3-af1a-1650f9a5d194" >
+		<http:listener doc:name="Listener" doc:id="ee3e34bf-d51e-41e3-a777-18be1e37e73a" config-ref="HTTP_Listener_config" path="/firstsuccessful"/>
+		<first-successful doc:name="First Successful" doc:id="654a3a32-ccc6-42e2-94a6-f1f4e63a74f8" >
+			<route >
+				<flow-ref doc:name="Rest API call" doc:id="47cf2f93-b841-4d71-8a67-8b681a51e645" name="restapiflow"/>
+			</route>
+			<route >
+				<flow-ref doc:name="DB Call" doc:id="cd1f483f-53b9-42a8-988a-2bffb5f22395" name="dbcall"/>
+			</route>
+		</first-successful>
+		<ee:transform doc:name="Transform Message" doc:id="205195d0-f80a-4c38-bdcd-4a9aeb5f458e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

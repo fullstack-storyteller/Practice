@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\ThreadStartDelegate\bin\Debug\ThreadStartDelegate.exe.config
+D:\GitHUB\Practice\DOTNET\ThreadStartDelegate\bin\Debug\ThreadStartDelegate.exe
+D:\GitHUB\Practice\DOTNET\ThreadStartDelegate\bin\Debug\ThreadStartDelegate.pdb
+D:\GitHUB\Practice\DOTNET\ThreadStartDelegate\obj\Debug\ThreadStartDelegate.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\ThreadStartDelegate\obj\Debug\ThreadStartDelegate.exe
+D:\GitHUB\Practice\DOTNET\ThreadStartDelegate\obj\Debug\ThreadStartDelegate.pdb

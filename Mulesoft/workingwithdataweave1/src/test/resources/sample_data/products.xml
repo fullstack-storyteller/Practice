@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" xmlns:temp="thisIsTestNameSpace">
+<temp:products>
+    <prod>
+        <pid>1</pid>
+        <productname>Hp Pavilion laptop</productname>
+        <brand>HP</brand>
+        <description>Hp Laptop </description>
+    </prod>
+    <prod>
+        <pid>2</pid>
+        <productname>Macbook Pro laptop</productname>
+        <brand>Apple</brand>
+        <description>Apple Laptop </description>
+    </prod>
+    <prod>
+        <pid>3</pid>
+        <productname>Mac Book  laptop</productname>
+        <brand>Apple</brand>
+        <description>Apple Laptop </description>
+    </prod>
+    <prod>
+        <pid>4</pid>
+        <productname>IBM laptop</productname>
+        <brand>IBM</brand>
+        <description>IBM Laptop </description>
+    </prod>
+    <prod>
+        <pid>5</pid>
+        <productname>MotoX Mobile</productname>
+        <brand>Motorola</brand>
+        <description>Motorola Mobile </description>
+    </prod>
+    <prod>
+        <pid>6</pid>
+        <productname>Samsung Note 5</productname>
+        <brand>Samsung</brand>
+        <description>Samsung Mobile </description>
+    </prod>
+</temp:products>

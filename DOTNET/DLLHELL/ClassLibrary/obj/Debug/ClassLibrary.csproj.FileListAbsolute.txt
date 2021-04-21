@@ -1,0 +1,4 @@
+D:\GitHUB\Practice\DOTNET\DLLHELL\ClassLibrary\bin\Debug\ClassLibrary.dll
+D:\GitHUB\Practice\DOTNET\DLLHELL\ClassLibrary\bin\Debug\ClassLibrary.pdb
+D:\GitHUB\Practice\DOTNET\DLLHELL\ClassLibrary\obj\Debug\ClassLibrary.dll
+D:\GitHUB\Practice\DOTNET\DLLHELL\ClassLibrary\obj\Debug\ClassLibrary.pdb

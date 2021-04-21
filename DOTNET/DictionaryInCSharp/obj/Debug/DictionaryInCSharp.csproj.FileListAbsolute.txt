@@ -1,0 +1,6 @@
+D:\GitHUB\Practice\DOTNET\DictionaryInCSharp\bin\Debug\DictionaryInCSharp.exe.config
+D:\GitHUB\Practice\DOTNET\DictionaryInCSharp\bin\Debug\DictionaryInCSharp.exe
+D:\GitHUB\Practice\DOTNET\DictionaryInCSharp\bin\Debug\DictionaryInCSharp.pdb
+D:\GitHUB\Practice\DOTNET\DictionaryInCSharp\obj\Debug\DictionaryInCSharp.csprojAssemblyReference.cache
+D:\GitHUB\Practice\DOTNET\DictionaryInCSharp\obj\Debug\DictionaryInCSharp.exe
+D:\GitHUB\Practice\DOTNET\DictionaryInCSharp\obj\Debug\DictionaryInCSharp.pdb

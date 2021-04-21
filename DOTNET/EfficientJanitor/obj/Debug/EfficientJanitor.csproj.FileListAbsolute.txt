@@ -1,0 +1,6 @@
+C:\Users\manis\Documents\Cyzerg\EfficientJanitor\bin\Debug\EfficientJanitor.exe.config
+C:\Users\manis\Documents\Cyzerg\EfficientJanitor\bin\Debug\EfficientJanitor.exe
+C:\Users\manis\Documents\Cyzerg\EfficientJanitor\bin\Debug\EfficientJanitor.pdb
+C:\Users\manis\Documents\Cyzerg\EfficientJanitor\obj\Debug\EfficientJanitor.csprojAssemblyReference.cache
+C:\Users\manis\Documents\Cyzerg\EfficientJanitor\obj\Debug\EfficientJanitor.exe
+C:\Users\manis\Documents\Cyzerg\EfficientJanitor\obj\Debug\EfficientJanitor.pdb
