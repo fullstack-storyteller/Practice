@@ -1,0 +1,7 @@
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\bin\Debug\LinkedList.exe.config
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\bin\Debug\LinkedList.exe
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\bin\Debug\LinkedList.pdb
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\obj\Debug\LinkedList.csprojAssemblyReference.cache
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\obj\Debug\LinkedList.csproj.CoreCompileInputs.cache
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\obj\Debug\LinkedList.exe
+D:\GITHUB\Practice\DataStructuresAndAlgo\LinkedList\obj\Debug\LinkedList.pdb

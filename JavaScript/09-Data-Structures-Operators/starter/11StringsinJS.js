@@ -32,7 +32,7 @@ console.log(airline.slice(0, airline.indexOf(' '))); //TAP
 console.log(airline.slice(airline.lastIndexOf(' '))); //Purtogalr
 
 console.log(airline.slice(-2)); //get from end, NOTE negative indexes start from -1 from the right hand side
-console.log(airline.slice(1, -1)); //start from index 1 and goes till last index from lest of first index from right, but it doesn't include it, because we know slice method's end index is exclusive.
+console.log(airline.slice(1, -1)); //start from index 1 and goes till last index from last of first index from right, but it doesn't include it, because we know slice method's end index is exclusive.
 
 //practice
 const checkMiddleSeat = function (seat) {
@@ -102,6 +102,42 @@ console.log(plane1.endsWith('peo')); //false
 console.log(plane1.endsWith('neo')); //false
 console.log(plane1.endsWith('Neo')); //true, hence this method is case senstive
 
-//NOTE split()
+//NOTE split() and Join
 
 console.log('a+very+nice+string'.split('+')); //returns an array of strings found after separating '+'
+
+const myName = 'Manish Kumar';
+console.log(myName.split('')); //supplying an empty string separated all the letters in the myName including the space in an array
+
+console.log(myName.split(' ')); // return array of two strings
+
+const [fname, lname] = myName.split(' ');
+const newName = ['Mr.', fname, lname];
+console.log(newName.join('')); //return a string without space
+console.log(newName.join(' ')); //return a string with space between each word
+
+// capitalize IMPORTANT
+
+const capitalize = function (name) {
+  const names = name.split(' ');
+  const capitalized = [];
+  for (let x of names) {
+    //method 1
+    // capitalized.push(x[0].toUpperCase() + x.slice(1));
+
+    //method 2
+    capitalized.push(x.replace(x[0], x[0].toUpperCase()));
+  }
+  return capitalized.join(' ');
+};
+const capitalizeName = 'jessica ann smidth davis';
+// const capitalizeName='jessica ann smidth davis';
+const capiltalozName = 'jonas schemadtmann';
+
+console.log(capitalize(capitalizeName));
+console.log(capitalize(capiltalozName));
+
+// NOTE Padding a string
+
+const msg = 'Go to gate 23';
+console.log(msg.padStart(25, '+'));
