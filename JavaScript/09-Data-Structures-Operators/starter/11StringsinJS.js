@@ -141,3 +141,18 @@ console.log(capitalize(capiltalozName));
 
 const msg = 'Go to gate 23';
 console.log(msg.padStart(25, '+'));
+console.log(msg.padStart(20, '+').padEnd(35, '+'));
+
+const creditCardNumber = 535629532477;
+
+const maskCC = function (cc, unmaskedLength) {
+  // const str=String(cc);
+  const str = cc + '';
+  return str.slice(-1 * unmaskedLength).padStart(str.length, 'X');
+};
+
+console.log(maskCC(creditCardNumber, 5));
+
+//NOTE Repeat
+const message2 = 'Bad weather....All planes are delayed...';
+console.log(message2.repeat(4));
