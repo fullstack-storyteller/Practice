@@ -17,8 +17,6 @@ WebAPI is widely used for creating RESTFul services. but it can also be used to 
   - Client - Server contraint: Client sends request, Server send responds. It make separation of logic possible
   - Stateless constraint: We should be not storing anything related to clients at the server end. Each request should contain all the necessary informationregarding the client. This ensure each request can be treated independent by the server
   - Cacheble contraint: This states that, let the client know for how long the cached data is good for, so that we can avoid unnecessary processing and significantly imporves system performance.
-  - Layered System
-  - Code on Demand (optional)
   - Unform interface contraint: It defines the interface between clients and server. It involves Http verbs(get, put, post, delete) and resources(data entities for example product, employee and customer etc..). The verbs are sent with each request and they tell the server, what needs to be done with the resource.
     | Resource | Verb | Outcome |
     | ----------- | ------ | --------------------------- |
@@ -27,6 +25,9 @@ WebAPI is widely used for creating RESTFul services. but it can also be used to 
     | /Employee | POST | Creates a new employee |
     | /Employee/1 | PUT | Updates employee with ID =1 |
     | /Employee/1 | DELETE | Deletes employee with ID=1 |
+
+  - Layered System
+  - Code on Demand (optional)
 
 ### HATEOS (Hypermedia as the Engine of Application State)
 
