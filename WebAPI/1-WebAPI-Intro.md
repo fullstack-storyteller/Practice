@@ -32,3 +32,10 @@ WebAPI is widely used for creating RESTFul services. but it can also be used to 
 ### HATEOS (Hypermedia as the Engine of Application State)
 
 In each request there will be a set of hyperlinks, that lets us know what other action can be performed on this resource
+
+## WCF or WEB API
+
+- A lot of configuration is required, especially when we want to create a RESTFul service using WCF. But WEB API are made for Restful Services
+- We use WCF when we need a service which is transport or protocol independent. In a WCF, we can have XML over HTTP for interoperability and Binary message or TCP for performance in a single WCF service with multiple end points. Web API can't do this.
+- .Net 3.5 or earlier only supports WCF not Web API
+- if you have an existing SOAP service you must that you want to add REST to reach more users/clients
