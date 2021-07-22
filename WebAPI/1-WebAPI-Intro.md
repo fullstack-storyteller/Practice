@@ -39,3 +39,35 @@ In each request there will be a set of hyperlinks, that lets us know what other 
 - We use WCF when we need a service which is transport or protocol independent. In a WCF, we can have XML over HTTP for interoperability and Binary message or TCP for performance in a single WCF service with multiple end points. Web API can't do this.
 - .Net 3.5 or earlier only supports WCF not Web API
 - if you have an existing SOAP service you must that you want to add REST to reach more users/clients
+
+### While working with Web API, it will be a good idea to run your Visual Studio in Administrator mode
+
+### executionpolicy in powershel should be set to remoteSigned or allSigned to be able to create a web api project
+
+### For powershell security prompt, press r and hit enter to run once
+
+Note:
+
+| CRUD operations | HTTP Verb |
+| --------------- | --------- |
+| Create          | POST      |
+| Read            | GET       |
+| Update          | PUT       |
+| Delete          | DELETE    |
+
+## important Points
+
+1. For complete list of HTTP Verbs click [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+2. Request Header contains addtional information about the request. Ex: what type of response is required
+
+3. Request Body contains the data you want to send to server (XML or JSON)
+
+4. Response Body constains the data sent as response from the server
+
+5. Response Status Code provide the client the status of the request. For the complete list of HTTP Status codes click [here](https://www.restapitutorial.com/httpstatuscodes.html)
+
+## Important things in Http request
+
+1. While issuing POST request, you can specify: `Content-Type: application/json` to send data to server in json format
+2. While sending GET request, you can specify: `Accept: application/json` to get response in json format
