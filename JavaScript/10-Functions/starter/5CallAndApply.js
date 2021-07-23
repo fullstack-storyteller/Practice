@@ -57,3 +57,21 @@ const eurowings = {
 const flightData = [243, 'Archana Verma'];
 booker.call(eurowings, ...flightData);
 booker.apply(eurowings, [231, 'Ashish Kumar']);
+
+console.log('--------------------------------');
+const obj = {
+  name: 'manish',
+  greet: function () {
+    console.log('Hey,', this.name);
+  },
+};
+obj.greet(); //Hey, manish
+console.log('--------------------------------');
+const obj1 = {
+  name: 'manish-new',
+  greet: () => {
+    console.log('Hey,', this.name);
+  },
+};
+
+obj1.greet(); //Hey,

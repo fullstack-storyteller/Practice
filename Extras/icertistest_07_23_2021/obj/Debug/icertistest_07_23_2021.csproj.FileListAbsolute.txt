@@ -1,0 +1,6 @@
+D:\GITHUB\Practice\Extras\icertistest_07_23_2021\bin\Debug\icertistest_07_23_2021.exe.config
+D:\GITHUB\Practice\Extras\icertistest_07_23_2021\bin\Debug\icertistest_07_23_2021.exe
+D:\GITHUB\Practice\Extras\icertistest_07_23_2021\bin\Debug\icertistest_07_23_2021.pdb
+D:\GITHUB\Practice\Extras\icertistest_07_23_2021\obj\Debug\icertistest_07_23_2021.csproj.CoreCompileInputs.cache
+D:\GITHUB\Practice\Extras\icertistest_07_23_2021\obj\Debug\icertistest_07_23_2021.exe
+D:\GITHUB\Practice\Extras\icertistest_07_23_2021\obj\Debug\icertistest_07_23_2021.pdb

@@ -9,3 +9,4 @@ D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary1.pdb
 D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\obj\Debug\IntroductionToCSharp.csproj.CopyComplete
 D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary2.dll
 D:\GitHUB\Practice\DOTNET\IntroductionToCSharp\bin\Debug\ClassLibrary2.pdb
+D:\GITHUB\Practice\DOTNET\IntroductionToCSharp\obj\Debug\IntroductionToCSharp.csproj.CoreCompileInputs.cache

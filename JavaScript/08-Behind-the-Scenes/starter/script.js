@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- *TOPIC
+ *TOPIC NOTE
  * Javascript is a high level object oriented multi paradigm programming language
  *
  *Javascript is a high level, prototype based,
@@ -86,7 +86,7 @@
 /**
  * As a piece of javascript code enters the engine,
  * 1. Parse the code [read the code] into a data structure Abstract syntax tree (AST)
- *  This works by first splitting up each line of code into pieces that are meaningfull to the language like the const and function keywords
+ *  This works by first splitting up each line of code into pieces that are meaningful to the language like the const and function keywords
  *  Then saving all these pieces into a treee in a structured way
  *  This steps also checks if there are any syntax errors
  *  The resulting tree will later be used to generate a machine code
