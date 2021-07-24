@@ -67,7 +67,7 @@ Note:
 
 5. Response Status Code provide the client the status of the request. For the complete list of HTTP Status codes click [here](https://www.restapitutorial.com/httpstatuscodes.html)
 
-## Important things in Http request
+## Important things in Http requests
 
 1. While issuing POST request, you can specify: `Content-Type: application/json` to send data to server in json format
 2. While sending GET request, you can specify: `Accept: application/json` to get response in json format
