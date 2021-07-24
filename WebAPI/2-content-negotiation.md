@@ -4,7 +4,7 @@ Using **Accept** header the client can specify the format of response they want
 
 - Accept: `application/xml`
 - Accept: `application/json`
-  By default, it will be text/html.
+  By default, it will be `text/html`.
 
 Multiple formatters can also specified in accept header:
 
