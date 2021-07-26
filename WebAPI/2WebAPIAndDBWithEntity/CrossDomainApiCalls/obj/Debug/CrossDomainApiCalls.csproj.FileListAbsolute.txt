@@ -57,3 +57,12 @@ D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\obj\Debug\C
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\obj\Debug\CrossDomainApiCalls.csproj.CopyComplete
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\obj\Debug\CrossDomainApiCalls.dll
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\obj\Debug\CrossDomainApiCalls.pdb
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\Newtonsoft.Json.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Net.Http.Formatting.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Web.Cors.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Web.Http.Cors.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Web.Http.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\Newtonsoft.Json.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Net.Http.Formatting.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Web.Http.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\CrossDomainApiCalls\bin\System.Web.Http.Cors.xml

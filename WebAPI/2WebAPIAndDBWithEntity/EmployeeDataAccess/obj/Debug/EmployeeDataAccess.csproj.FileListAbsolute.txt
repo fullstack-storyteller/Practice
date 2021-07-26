@@ -10,3 +10,12 @@ D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\obj\Debug\Em
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.csproj.CopyComplete
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.dll
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\obj\Debug\EmployeeDataAccess.pdb
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\Newtonsoft.Json.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Net.Http.Formatting.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Web.Cors.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Web.Http.Cors.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Web.Http.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\Newtonsoft.Json.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Net.Http.Formatting.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Web.Http.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\EmployeeDataAccess\bin\Debug\System.Web.Http.Cors.xml

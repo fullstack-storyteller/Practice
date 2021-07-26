@@ -78,12 +78,12 @@ CallbackFunction({
 
 ```
 
-## how to use JSONP in our program, i.e. the client
+## How to use JSONP in our program, i.e. the client
 
 1. we will need another package to work with JSONP
 2. Open the Package Manager Console in Visual Studio Code: Tools->Nuget packet Manager->Package Manager Console
 3. Run the command `Install-package WebApiContrib.Formatting.Jsonp`
-4. Make sure to register this jsonp formatter in register method of the api in WebApiConfig.cs
+4. Make sure to register this jsonp formatter in `Register` method of the api in `WebApiConfig.cs`
    ![injecting jasonp formatter](./images/3.PNG)
 5. While making api call, now the server will return a jsonp formatter data. call the ajax method accordingly:
    ![calling ajax using jsonp](./images/4.PNG)
@@ -105,3 +105,11 @@ Now to get the data as json back in fiddler tool (make sure to remove the query 
 Now even if you supply the `Accept` header as `application/json`, and you supply the callback method name in the url, you will get the jsonp result back.
 ![fiddler tool](./images/9.PNG)
 ![fiddler tool](./images/10.PNG)
+
+## How to use CORS (Cross Origin resource Sharing)
+
+1. Install CORS Package `Install-package Microsoft.Asp.Net.WebApi.Cors`
+2. Add the below to lines to enable cors globally. Refer the instruction as shown below in the `Register` method of the api in `WebApiConfig.cs`:
+   ![cors](./images/12.PNG)
+3. Once enabled globally, the API call from a different domain runs fine.
+   ![success](./images/11.PNG)

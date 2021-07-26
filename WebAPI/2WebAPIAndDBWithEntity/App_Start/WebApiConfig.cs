@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebApiContrib.Formatting.Jsonp;
 
 namespace _2WebAPIAndDBWithEntity
@@ -48,11 +49,24 @@ public static class WebApiConfig
             //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
 
             //register our cumstom formatter
-            //config.Formatters.Add(new MyCustomMediaTypeFormatter());
+            config.Formatters.Add(new MyCustomMediaTypeFormatter());
+
 
             //the below code will handle jsonp formatting for enabling cross domain/origin api call using ajax
-            JsonpMediaTypeFormatter jsonpMediaTypeFormatter= new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
-            config.Formatters.Insert(0, jsonpMediaTypeFormatter);
+            //JsonpMediaTypeFormatter jsonpMediaTypeFormatter= new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            //config.Formatters.Insert(0, jsonpMediaTypeFormatter);
+
+            
+            //The below code will handle CORS for enabling Cross Domain Resource sharing
+            //i.e. for enabling cross domain api calls using ajax
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            //remember the above method takes all three parameters as comma separated values.
+            // parameter 1: comma seperated list of api domain names, give port numbers too
+            // parameter 2: comma separated list of header atteributes like Accept: application/json 
+            // parameter 3: comma separated list of http methods GET, POST
+
+            //Finally register the enable cors attribute with config object
+            config.EnableCors(cors);
         }
     }
 }
