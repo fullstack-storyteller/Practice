@@ -113,3 +113,10 @@ Now even if you supply the `Accept` header as `application/json`, and you supply
    ![cors](./images/12.PNG)
 3. Once enabled globally, the API call from a different domain runs fine.
    ![success](./images/11.PNG)
+
+**Note:**
+
+- Cors can be enabled in a more granular way. Instead of declaring cors inside the `Register` method of the api in `WebApiConfig.cs`, simple give `config.EnableCors();` without any parameters
+- Now, go to the sepcific controllers and use `[EnableCorsAttribute("*", "*", "*")]`. Don't forget to import `using System.Web.Http.Cors;`
+  - Note the \* will work the same way it worked inside the `Register` methods of `WebApiConfig.cs`
+- If you wish to disable cors for any specific controller method (offcourse where the cors is enable in the controller), you can use the attribute `[DisableCors]`
