@@ -12,7 +12,7 @@ namespace _2WebAPIAndDBWithEntity.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        //[DisableCors]
+        //[DisableCors] //disbale cors on controller method level
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
