@@ -15,7 +15,8 @@
                 $.ajax({
                     type: 'GET', //type of api call or http method
                     url: 'api/employee',//this is the api url, since we have employee.html file in the same project as the web api, so this is okay
-                    dataType: 'json', //type of datatype returned from the server
+                    //dataType: 'json', //type of datatype returned from the server
+                    dataType:'jsonp', //to enable cross domain api call using jsonp formatter
                     success: function (data) {
                         ulEmployess.empty();
                         $.each(data, function (index, val) {

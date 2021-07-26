@@ -90,3 +90,5 @@ D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\bin\EmployeeDataAccess.pdb
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\bin\EmployeeDataAccess.dll.config
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\bin\EntityFramework.xml
 D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\bin\EntityFramework.SqlServer.xml
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\bin\WebApiContrib.Formatting.Jsonp.dll
+D:\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity\bin\WebApiContrib.Formatting.Jsonp.pdb

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace _2WebAPIAndDBWithEntity
 {
@@ -47,7 +48,11 @@ public static class WebApiConfig
             //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
 
             //register our cumstom formatter
-            config.Formatters.Add(new MyCustomMediaTypeFormatter());
+            //config.Formatters.Add(new MyCustomMediaTypeFormatter());
+
+            //the below code will handle jsonp formatting for enabling cross domain/origin api call using ajax
+            JsonpMediaTypeFormatter jsonpMediaTypeFormatter= new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            config.Formatters.Insert(0, jsonpMediaTypeFormatter);
         }
     }
 }

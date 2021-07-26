@@ -77,3 +77,16 @@ CallbackFunction({
 })
 
 ```
+
+## how to use JSONP in our program, i.e. the client
+
+1. we will need another package to work with JSONP
+2. Open the Package Manager Console in Visual Studio Code: Tools->Nuget packet Manager->Package Manager Console
+3. Run the command `Install-package WebApiContrib.Formatting.Jsonp`
+4. Make sure to register this jsonp formatter in register method of the api in WebApiConfig.cs
+   ![injecting jasonp formatter](./images/3.PNG)
+5. While making api call, now the server will return a jsonp formatter data. call the ajax method accordingly:
+   ![calling ajax using jsonp](./images/4.PNG)
+6. We have to make the change in all the places where ajax is being to call cross domain apis and handle the jsonp formatting
+7. Make the change, build it and run to verify.
+   ![finally](./images/5.PNG)

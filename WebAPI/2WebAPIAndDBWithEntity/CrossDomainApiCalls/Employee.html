@@ -16,7 +16,8 @@
                     type: 'GET', //type of api call or http method
                     url: 'http://localhost:62331/api/employee',
                     //this is the api url, here we are trying to call an API from a different domain
-                    dataType: 'json', //type of datatype returned from the server
+                    //dataType: 'json', //type of datatype returned from the server
+                    dataType: 'jsonp', //to enable cross domain api call using jsonp formatter
                     success: function (data) {
                         ulEmployess.empty();
                         $.each(data, function (index, val) {
