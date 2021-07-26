@@ -120,3 +120,5 @@ Now even if you supply the `Accept` header as `application/json`, and you supply
 - Now, go to the sepcific controllers and use `[EnableCorsAttribute("*", "*", "*")]`. Don't forget to import `using System.Web.Http.Cors;`
   - Note the \* will work the same way it worked inside the `Register` methods of `WebApiConfig.cs`
 - If you wish to disable cors for any specific controller method (offcourse where the cors is enable in the controller), you can use the attribute `[DisableCors]`
+- `Acces-Control-Allow-Origin` must be set to \* or the orgin site which will issue the ajax request, otherwise the browser security will not allow us to view the response result even if the request have been successfull
+  ![final](./images/13.PNG)

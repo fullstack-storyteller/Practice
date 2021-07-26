@@ -4,13 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
 
 namespace _2WebAPIAndDBWithEntity.Controllers
 {
+    //[EnableCorsAttribute("*", "*", "*")] //enable cors on controller level
     public class ValuesController : ApiController
     {
         // GET api/values
+        //[DisableCors]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
