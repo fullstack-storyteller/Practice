@@ -90,3 +90,18 @@ CallbackFunction({
 6. We have to make the change in all the places where ajax is being to call cross domain apis and handle the jsonp formatting
 7. Make the change, build it and run to verify.
    ![finally](./images/5.PNG)
+
+**Note:**
+
+### What happens when we invoke the fiddler tool when we have jsonp formatting enabled
+
+Make sure to give a callback function name (any string as function name) in query string. this name will be the function which is wrapping the data which is returning as json `http://localhost:62331/api/employee/?callback=mycallbackmethod`. Please refer below:
+![fiddler tool](./images/6.PNG)
+
+Now to get the data as json back in fiddler tool (make sure to remove the query string), simply give `Accept` header as `Accept: application/json` as shown below:
+![fiddler tool](./images/7.PNG)
+![fiddler tool](./images/8.PNG)
+
+Now even if you supply the `Accept` header as `application/json`, and you supply the callback method name in the url, you will get the jsonp result back.
+![fiddler tool](./images/9.PNG)
+![fiddler tool](./images/10.PNG)
