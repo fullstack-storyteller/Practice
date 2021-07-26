@@ -48,3 +48,43 @@ The below are having different schemes (http vs https)
 If you do end up invoking the an api from an different domain, below is the error that you will receive.
 
 ![cross domain api call](./images/1.PNG)
+
+## Fixing the issue
+
+Now that we understand that for security reasons the browser doesn't allow the cross domain ajax requests. There are two ways to get around the issue:
+
+1. Using JSONP ( JSON with Padding)
+2. Enabling CORS (Cross Origin Resource Sharing)
+
+### JSONP
+
+| JSON | JSONP |
+| ---- | ----- |
+
+|
+
+```JSON
+{
+"FirstName": "Mark",
+"LastName": "Hastings",
+"Gender": "Male"
+}
+
+```
+
+|
+
+```JSONP
+CallbackFunction({
+"FirstName": "Mark",
+"LastName": "Hastings",
+"Gender": "Male"
+})
+
+```
+
+|
+
+```
+
+```
