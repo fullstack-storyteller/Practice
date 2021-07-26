@@ -1,7 +1,7 @@
 # Ajax calls in Web API
 
 See the below screenshot, how the ajax is being used.
-![ajax](./images)
+![ajax](./images/2.PNG)
 
 Project location: `\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity` -> Employee.html
 
@@ -44,3 +44,7 @@ https://manish.com/api/employees
 http://manish.net/api/employees
 
 The below are having different schemes (http vs https)
+
+If you do end up invoking the an api from an different domain, below is the error that you will receive.
+
+![cross domain api call](./images/1.PNG)
