@@ -56,12 +56,7 @@ Now that we understand that for security reasons the browser doesn't allow the c
 1. Using JSONP ( JSON with Padding)
 2. Enabling CORS (Cross Origin Resource Sharing)
 
-### JSONP
-
-| JSON | JSONP |
-| ---- | ----- |
-
-|
+### JSON
 
 ```JSON
 {
@@ -72,7 +67,7 @@ Now that we understand that for security reasons the browser doesn't allow the c
 
 ```
 
-|
+### JSONP
 
 ```JSONP
 CallbackFunction({
@@ -82,5 +77,3 @@ CallbackFunction({
 })
 
 ```
-
-|
