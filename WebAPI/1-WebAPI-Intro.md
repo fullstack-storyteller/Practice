@@ -1,7 +1,7 @@
 # What is WebAPI
 
-Web Application Programming Interface = HTTP based services
-ASP .NET WEB API = Framework for building Web API
+- Web Application Programming Interface = HTTP based services
+- ASP .NET WEB API = Framework for building Web API
 
 These services can be consumed by a broad range of clients like:browsers,mobile applications, desktop applications and IOTs (Internet of Things are objects / devices that have an IP address and can communicate with other devices over a network. Examples security systems, electronics appliances, thermostats, desktops, smartphones).
 
