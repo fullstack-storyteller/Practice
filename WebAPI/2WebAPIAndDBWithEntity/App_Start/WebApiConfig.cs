@@ -13,7 +13,7 @@ namespace _2WebAPIAndDBWithEntity
     //to circumvent that, we will create a new custom mediatype formatter and use it when we receive the 
     //text/html Accept header , i.e. default accept header from browser.
     //in the below example if text/html accept header is received, we respond with application/json
-    //this will not affect the behaviour if application/json or application/xml is received, they will work as expected.
+    //this will not affect the behaviour of application/json or application/xml is received, they will work as expected.
   public class MyCustomMediaTypeFormatter : JsonMediaTypeFormatter{
         public MyCustomMediaTypeFormatter()
         {
@@ -48,7 +48,7 @@ public static class WebApiConfig
             //turn the property name into camel case
             //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
 
-            //register our cumstom formatter
+            //register our custom formatter
             config.Formatters.Add(new MyCustomMediaTypeFormatter());
 
 

@@ -20,12 +20,12 @@ You can also define your custom media type formatter, and ensure that you are on
 
 Check the project: `\GITHUB\Practice\WebAPI\2WebAPIAndDBWithEntity`
 
-## Here are a few point to remember while implementing Post method
+## Here are a few points to remember while implementing Post method
 
 - if a method return type is void, by default http status code 204 no content is returned
 - when a new item is created, we should be returning status code 201 item created
 - With 201 status code we should also include the location i.e.e URI of the newly created item
-- when an item is not found, instead of returning NUL and status code 200 OK, return 4040 NOT FOUND status code along with a meaningful message such as "Employee with id=101 not found"
+- when an item is not found, instead of returning NULL and status code 200 OK, return 4040 NOT FOUND status code along with a meaningful message such as "Employee with id=101 not found"
 
 ## FromBody and FromUri Attriutes
 
