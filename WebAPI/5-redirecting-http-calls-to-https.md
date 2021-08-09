@@ -9,3 +9,11 @@ Now, our goal is to ensure that even when http api call is made, the user is red
 So we know that both the endpoint i.e. https and http are working fine as below
 
 ![endpoints](./images/15.png)
+
+## How to achieve the redirction from HTTP to HTTPS
+
+- To ensure that when we receive an http api call, we must be able to intercept it and see if the requested resource is available for https or not.
+- We will add a new class `RequireHttps` which will check our api calls and make necessary changes if http api call is received.
+- Make sure the class inherits from the `AutorizationFilterAttribute`
+- We need to override the `OnAuthorization` method as this is the method which will be called to authorize whenever we decorate a given web api controller or action method using \[RequireHttps\] attribute. Please refer the below code snippet for more details.
+  - ![code](./images/16.PNG)
