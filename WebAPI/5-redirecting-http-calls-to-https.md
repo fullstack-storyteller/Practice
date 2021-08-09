@@ -18,7 +18,7 @@ So we know that both the endpoint i.e. https and http are working fine as below
 - We need to override the `OnAuthorization` method as this is the method which will be called to authorize whenever we decorate a given web api controller or action method using \[RequireHttps\] attribute. Please refer the below code snippet for more details.
   - ![code](./images/16.PNG)
 - Now that we have coded the authorization, it is time to register the autorization class in our `WebApiConfig.cs` class. Just write the below code in it `config.Filters.Add(new RequireHttps());`
-  - ![register the https filter](./images/18.PNG)
+  - ![register the https filter](./images/23.PNG)
   - Then go ahead and build the solution
 - Once it has been built, you can launch the https url as shown below:
   - ![http launch](./images/17.PNG)
