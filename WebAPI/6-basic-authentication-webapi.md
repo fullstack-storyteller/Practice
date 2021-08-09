@@ -16,11 +16,12 @@ Note 1: We will enable the authentication globally, but we will test enabling th
   - ![basic authentication filter](./images/26.PNG)
 - Now you have the code for the basic Authentication filter. Register is globally in WebApiConfig.cs file using `config.Filters.Add(new BasicAuthentication());`. Same can be applied as attribute on specific controller or action methods, like we saw earlier.
   - ![registered in WebApiConfig.cs](./images/27.PNG)
-- use this link to encode the username:password to base64 [link](https://www.base64encode.org/)
+- use this link to encode the username:password to [base64](https://www.base64encode.org/)
   - `manish:UZy@996sJR` becomes `bWFuaXNoOlVaeUA5OTZzSlI=`
   - `archana:B333047613i!` becomes `YXJjaGFuYTpCMzMzMDQ3NjEzaSE=`
 - supply the authentication header as shown below:
   - ![authentication header](./images/28.PNG)
+  - Remember to use `Basic` keyword for the type of authentication
   - On success:
     - ![success](./images/29.PNG)
   - On failure:
