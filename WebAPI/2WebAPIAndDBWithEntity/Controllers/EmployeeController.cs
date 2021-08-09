@@ -8,6 +8,7 @@ using EmployeeDataAccess;
 
 namespace _2WebAPIAndDBWithEntity.Controllers
 {
+    [RequireHttps]
     public class EmployeeController : ApiController
     {
         // GET api/employee

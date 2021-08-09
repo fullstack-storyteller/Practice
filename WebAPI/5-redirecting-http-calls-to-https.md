@@ -31,3 +31,5 @@ So we know that both the endpoint i.e. https and http are working fine as below
       - ![response for intital request](./images/21.PNG)
     - Final response from the API after redirection **200**
       - ![finally](./images/22.PNG)
+- If you don't want to enable this filter globally, then you can decorate the relevant controller classes and action methods with the class name i.e. `[RequireHttps]` in our example
+  - ![granular](./images/24.PNG)
