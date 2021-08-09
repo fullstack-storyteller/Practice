@@ -8,7 +8,7 @@ using EmployeeDataAccess;
 
 namespace _2WebAPIAndDBWithEntity.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class EmployeeController : ApiController
     {
         // GET api/employee
@@ -20,6 +20,8 @@ namespace _2WebAPIAndDBWithEntity.Controllers
         //        return employees.Employees.ToList<Employee>();
         //    }
         //}
+        
+        //[RequireHttps]
         public HttpResponseMessage LoadAllEmployees(string gender = "All")
         {
             using (EmployeeDataModelEntities entities = new EmployeeDataModelEntities())
