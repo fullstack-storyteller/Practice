@@ -18,7 +18,7 @@ namespace _2WebAPIAndDBWithEntity
                 //make a response which says that the particular uri, that is being request is available 
                 //but the request needs to be https not http
                 actionContext.Response = actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Found);
-                actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTPS</p>", 
+                actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTP</p>", 
                     System.Text.Encoding.UTF8);
 
                 //now redirect the request to https
@@ -26,8 +26,10 @@ namespace _2WebAPIAndDBWithEntity
                 uriBuilder.Scheme = Uri.UriSchemeHttps;
                 uriBuilder.Port = 44349; //the port number of our ssl web api. Check the first screenshot
 
+                
                 //finally set the location header to the new uri that we created for https
                 actionContext.Response.Headers.Location = uriBuilder.Uri;
+               
             }
             else
             {

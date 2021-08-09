@@ -74,6 +74,9 @@ public static class WebApiConfig
             //the controllers and all the action methods will have this new authorization filter enabled
             //for them.
             config.Filters.Add(new RequireHttps());
+
+            //register the basic authentication filter globally.
+            config.Filters.Add(new BasicAuthentication());
         }
     }
 }
