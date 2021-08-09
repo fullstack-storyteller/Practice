@@ -5,3 +5,7 @@ In our previous section we saw that we can now make api calls of both http and h
 Now, our goal is to ensure that even when http api call is made, the user is redirected to the https version of the webapi. Currently we have the below project properties (click `F4` on the project selection)
 
 ![properties](./images/14.PNG)
+
+So we know that both the endpoint i.e. https and http are working fine as below
+
+![endpoints](./images/15.png)
