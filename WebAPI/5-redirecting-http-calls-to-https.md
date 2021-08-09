@@ -25,3 +25,9 @@ So we know that both the endpoint i.e. https and http are working fine as below
   - the response will be in https
     - ![https response](./images/19.png)
   - Then you see the same from the network tab in chrome dev tools
+    - Initial request using http
+      - ![network tab](./images/20.PNG)
+    - Response to the initial request **302**
+      - ![response for intital request](./images/21.PNG)
+    - Final response from the API after redirction
+      - ![finally](./images/22.PNG)
