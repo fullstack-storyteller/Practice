@@ -14,7 +14,7 @@ Note 1: We will enable the authentication globally, but we will test enabling th
   - ![login method](./images/25.PNG)
 - Now lets create a basic authentication filter. Remember to inherit the class `AuthorizationFilterAttribute` and then override the `OnAuthorization` method. Please refer the below code:
   - ![basic authentication filter](./images/26.PNG)
-- Now you have the code for the basic Authentication filter. Register is globally in WebApiConfig.cs file. Same can be applied as attribute on specific controller or action methods, like we saw earlier.
+- Now you have the code for the basic Authentication filter. Register is globally in WebApiConfig.cs file using `config.Filters.Add(new BasicAuthentication());`. Same can be applied as attribute on specific controller or action methods, like we saw earlier.
   - ![registered in WebApiConfig.cs](./images/27.PNG)
 - use this link to encode the username:password to base64 [link](https://www.base64encode.org/)
   - `manish:UZy@996sJR` becomes `bWFuaXNoOlVaeUA5OTZzSlI=`
