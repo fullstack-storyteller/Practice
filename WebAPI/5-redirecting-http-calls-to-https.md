@@ -29,5 +29,5 @@ So we know that both the endpoint i.e. https and http are working fine as below
       - ![network tab](./images/20.PNG)
     - Response to the initial request **302**
       - ![response for intital request](./images/21.PNG)
-    - Final response from the API after redirction
+    - Final response from the API after redirection **200**
       - ![finally](./images/22.PNG)
