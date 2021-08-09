@@ -18,7 +18,8 @@ namespace _2WebAPIAndDBWithEntity
                 //make a response which says that the particular uri, that is being request is available 
                 //but the request needs to be https not http
                 actionContext.Response = actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Found);
-                actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTPS</p>", System.Text.Encoding.UTF8);
+                actionContext.Response.Content = new StringContent("<p>Use HTTPS instead of HTTPS</p>", 
+                    System.Text.Encoding.UTF8);
 
                 //now redirect the request to https
                 UriBuilder uriBuilder = new UriBuilder(actionContext.Request.RequestUri);

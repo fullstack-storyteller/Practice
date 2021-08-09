@@ -67,6 +67,10 @@ public static class WebApiConfig
 
             //Finally register the enable cors attribute with config object
             config.EnableCors(cors);
+
+
+            //register the authorization filter for http to https migration
+            config.Filters.Add(new RequireHttps());
         }
     }
 }
