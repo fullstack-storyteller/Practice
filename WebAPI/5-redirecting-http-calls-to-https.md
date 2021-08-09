@@ -23,5 +23,5 @@ So we know that both the endpoint i.e. https and http are working fine as below
 - Once it has been built, you can launch the https url as shown below:
   - ![http launch](./images/17.PNG)
   - the response will be in https
-    - ![https response](./images/19.PNG)
+    - ![https response](./images/19.png)
   - Then you see the same from the network tab in chrome dev tools
