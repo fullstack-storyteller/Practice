@@ -69,7 +69,10 @@ public static class WebApiConfig
             config.EnableCors(cors);
 
 
-            //register the authorization filter for http to https migration
+            //Register the authorization filter for http to https migration
+            //Remember that registering the filter in WebApiConfig.cs file has global effect, that means all
+            //the controllers and all the action methods will have this new authorization filter enabled
+            //for them.
             config.Filters.Add(new RequireHttps());
         }
     }
