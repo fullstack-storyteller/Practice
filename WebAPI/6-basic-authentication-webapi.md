@@ -88,3 +88,45 @@ And once the changes are saved, we have the below result:
   - ![success](./images/33.png)
 - FAILURE
   - ![failure](./images/34.png)
+
+## Note:
+
+Uptill this point we did not entertain the cross origin api call. Lets make some changes to the client web app where similar Employee.html is present. we only need to make a minor change to the api url and rest of the things will remain the same.
+
+```javascript code
+$("#btn").click(function () {
+  var userName = $("#txtUserName").val();
+  var password = $("#txtPassword").val();
+  $.ajax({
+    type: "GET", //type of api call or http method
+    url: "http://localhost:62331/api/employee",
+    //this is the api url, here we are trying to call an API from a different domain
+    dataType: "json", //type of datatype returned from the server
+    //dataType: 'jsonp', //to enable cross domain api call using jsonp formatter
+    complete: function (jqXHR) {
+      //this method will run once once the jQuery XMLHttp request is completed
+      if (jqXHR.status == "401") {
+        ulEmployess.empty();
+        ulEmployess.append(
+          '<li style="color:red">' +
+            jqXHR.status +
+            " : " +
+            jqXHR.statusText +
+            "</li>"
+        );
+      }
+    },
+    success: function (data) {
+      ulEmployess.empty();
+      $.each(data, function (index, val) {
+        var fullName = val.FirstName + " " + val.LastName;
+        ulEmployess.append("<li>" + fullName + "</li>");
+      });
+    },
+    headers: {
+      //adding a authorization header
+      Authorization: "Basic " + btoa(`${userName}:${password}`),
+    },
+  });
+});
+```
