@@ -40,10 +40,10 @@
                     url: 'api/employee',//this is the api url, since we have employee.html file in the same project as the web api, so this is okay
                     dataType: 'json', //type of datatype returned from the server
                     //dataType:'jsonp', //to enable cross domain api call using jsonp formatter
-                    //headers: {
-                    //    //adding a authorization header
-                    //    'Authorization': 'Basic ' + btoa(`${userName}:${password}`)
-                    //},
+                    headers: {
+                        //adding a authorization header
+                        'Authorization': 'Basic ' + btoa(`${userName}:${password}`)
+                    },
                     success: function (data) {
                         ulEmployess.empty();
                         $.each(data, function (index, val) {
@@ -51,12 +51,12 @@
                             ulEmployess.append('<li>' + fullName + '</li>');
                         });
                     },
-                    //complete: function (jqXHR) { //this method will run once once the jQuery XMLHttp request is completed
-                    //    if (jqXHR.status == '401') {
-                    //        ulEmployess.empty();
-                    //        ulEmployess.append('<li style="color:red">' + jqXHR.status + ' : ' + jqXHR.statusText + '</li>')
-                    //    }
-                    //}
+                    complete: function (jqXHR) { //this method will run once once the jQuery XMLHttp request is completed
+                        if (jqXHR.status == '401') {
+                            ulEmployess.empty();
+                            ulEmployess.append('<li style="color:red">' + jqXHR.status + ' : ' + jqXHR.statusText + '</li>')
+                        }
+                    }
 
                 });
             });
