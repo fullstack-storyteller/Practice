@@ -72,8 +72,8 @@ public static class WebApiConfig
             //Register the authorization filter for http to https migration
             //Remember that registering the filter in WebApiConfig.cs file has global effect, that means all
             //the controllers and all the action methods will have this new authorization filter enabled
-            //for them.
-            config.Filters.Add(new RequireHttps());
+            //for them. Currently, we have disabled the http to https redirection
+            //config.Filters.Add(new RequireHttps());
 
             //register the basic authentication filter globally.
             config.Filters.Add(new BasicAuthentication());

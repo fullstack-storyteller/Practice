@@ -19,7 +19,7 @@ namespace _2WebAPIAndDBWithEntity
             if (actionContext.Request.Headers.Authorization == null)
             {
                 actionContext.Response = actionContext.Request
-                    .CreateResponse(System.Net.HttpStatusCode.Unauthorized, "<p>No Authorization Header</p>", "text/html"); //no authorization header in request
+                    .CreateResponse(System.Net.HttpStatusCode.Unauthorized, "No Authorization Header", "text/html"); //no authorization header in request
                 return; 
             }
             string authorizationToken = actionContext.Request.Headers.Authorization.Parameter;
@@ -32,7 +32,7 @@ namespace _2WebAPIAndDBWithEntity
             if(!EmployeeSecurity.Login(username, password))
             {
                 actionContext.Response = actionContext.Request
-                    .CreateResponse(System.Net.HttpStatusCode.Unauthorized,"<p>Login Failed</p>", "text/html"); //authentication failed
+                    .CreateResponse(System.Net.HttpStatusCode.Unauthorized,"Login Failed", "text/html"); //authentication failed
                 return;
             }
             //doing the below line just for the heck of it.
