@@ -76,7 +76,7 @@ Check the Register.html page for code details, on how the validation is being do
 | ------------------------ | ------------------------------------------------------------------------------ |
 | dbo.\_\_MigrationHistory | The presense of this table tells us that our project is using entity framework |
 | dbo.AspNetRoles          | This table store info about roles in our table                                 |
-| dbo.AspNetUserClaims     | info about claims in our app                                                   |
+| dbo.AspNetUserClaims     | Info about claims in our app                                                   |
 | dbo.AspNetUserLogins     | Used by 3rd party authentication providers like facebook, github or google     |
 | dbo.AspNetUserRoles      | Its a bridge table which tells us which users is associated with which roles   |
 | dbo.AspNetUsers          | Our actual users are present here                                              |
