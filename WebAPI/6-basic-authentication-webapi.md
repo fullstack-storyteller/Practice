@@ -1,5 +1,7 @@
 # Implementing Basic Authentication In Web API
 
+Project: 2WebAPIAndDBWithEntity
+
 The goal here is to require authentication before doing any operation in the web api. We will approach it the same way as we have done implemented the authorization filter while working with http to https api calls.
 
 Note: in this example we will implement authorization after the api call has been migrated to https from https.
@@ -89,7 +91,7 @@ And once the changes are saved, we have the below result:
 - FAILURE
   - ![failure](./images/34.png)
 
-## Note:
+## Note
 
 Uptill this point we did not entertain the cross origin api call. Lets make some changes to the client web app where similar Employee.html is present. we only need to make a minor change to the api url and rest of the things will remain the same.
 

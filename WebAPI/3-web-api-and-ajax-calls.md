@@ -1,5 +1,7 @@
 # Ajax calls in Web API
 
+Project: 2WebAPIAndDBWithEntity
+
 See the below screenshot, how the ajax is being used.
 ![ajax](./images/2.PNG)
 

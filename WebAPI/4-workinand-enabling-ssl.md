@@ -1,5 +1,7 @@
 # Working with SSL in ASP .NET WebAPI
 
+Project: 2WebAPIAndDBWithEntity
+
 By default in our Web API project, the SSL was disabled. You can enable it by selecting the WebAPI project and clicking **F4**. This will launch the property window for the project. Select property: `SSL Enabled` to `True`
 
 This is show you the SSL URL now as below:
