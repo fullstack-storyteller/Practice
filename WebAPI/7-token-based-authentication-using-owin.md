@@ -42,7 +42,7 @@ Check the Register.html page for code details, on how the validation is being do
         <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-3_WebApiTokenAuthenticationUsingOwin-20210822102302.mdf;Initial Catalog=aspnet-3_WebApiTokenAuthenticationUsingOwin-20210822102302;Integrated Security=True" providerName="System.Data.SqlClient" />
       ```
 
-      ![before](.\images\37.PNG)
+      ![before](./images/37.PNG)
 
       - After: the newly created identity database will be named myusers in your local db
 
@@ -50,7 +50,7 @@ Check the Register.html page for code details, on how the validation is being do
         <add name="DefaultConnection" connectionString="Data Source=(Local);Initial Catalog=myusers;Integrated Security=True" providerName="System.Data.SqlClient" />
       ```
 
-      ![after](.\images\38.PNG)
+      ![after](./images/38.PNG)
 
     - To create the identity database in same server and same application DB:
 
@@ -60,7 +60,7 @@ Check the Register.html page for code details, on how the validation is being do
         <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-3_WebApiTokenAuthenticationUsingOwin-20210822102302.mdf;Initial Catalog=aspnet-3_WebApiTokenAuthenticationUsingOwin-20210822102302;Integrated Security=True" providerName="System.Data.SqlClient" />
       ```
 
-      ![before](.\images\37.PNG)
+      ![before](./images/37.PNG)
 
       - After
 
@@ -68,4 +68,4 @@ Check the Register.html page for code details, on how the validation is being do
         <add name="DefaultConnection" connectionString="Data Source=(Local);Initial Catalog=practice;Integrated Security=True" providerName="System.Data.SqlClient" />
       ```
 
-      ![before](.\images\39.PNG)
+      ![before](./images/39.PNG)
