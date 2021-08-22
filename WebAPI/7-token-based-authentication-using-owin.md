@@ -72,8 +72,8 @@ Check the Register.html page for code details, on how the validation is being do
 
 ## Significance of the tables in identity database
 
-|----|----|
-|Identity database table|Usage|
+|------------------|---------------------|
+|Identity database table| Usage |
 |dbo.\_\_MigrationHistory||
 |dbo.AspNetRoles||
 |dbo.AspNetUserClaims||
