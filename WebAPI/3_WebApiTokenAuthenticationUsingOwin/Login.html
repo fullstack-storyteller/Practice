@@ -12,7 +12,9 @@
         <div class="well">
             <table class="table table-bordered">
                 <thead>
-                    <tr class="success"><th colspan="2"><h3>Existing User Login</h3></th></tr>
+                    <tr class="success"><th colspan="2">Existing User Login
+                         <a class="btn btn-success pull-right" href="Register.html">Register</a>
+                         </th></tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -30,8 +32,10 @@
             </table>
 
             <div id="divError" class="alert alert-danger collapse">
-                <div id="divErrorText"></div>
                 <a class="close" id="linkClose" href="#">&times;</a>
+                <div id="divErrorText">
+
+                </div>
             </div>
             
         </div>
@@ -40,7 +44,43 @@
     <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnLogin').click(function () {
+                $.ajax({
+                    url: '/Token',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: {
+                        username: $('#txtUsername').val(),
+                        password: $('#txtPassword').val(),
+                        grant_type: 'password'
+                    },
+                    success: function (response) {
+                        
+                        //localStorage.setItem('accessToken', response.access_token)
+                        // works the same way but it is more persistent. closing the browser window will not let the data be lost.
 
+                        sessionStorage.setItem('accessToken', response.access_token); //browser session storage
+                        //this data will get lost if window is closed or when we explicitly remove a key from it
+                        window.location.href = 'Data.html';
+                        sessionStorage.setItem('username', response.userName);
+
+                        //the below is just for testing
+                        //$('#divError').show('fade');
+                        //$('#divErrorText').text(JSON.stringify(response));
+                    },
+                    error: function (jqXHR) {
+                        $('#divError').show('fade');
+                        $('#divErrorText').text(jqXHR.responseText);
+                    }
+
+                });
+            });
+
+            $('#linkClose').click(function () {
+                $('#divError').hide('fade');
+            });
+        });
     </script>
 </body>
 </html>
