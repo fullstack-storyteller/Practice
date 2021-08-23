@@ -148,3 +148,40 @@ As you can see from the response screen shot, we got back a token from our POST 
         }
 
 ```
+
+- The actual user id and password matching is coming from the `Provider = new ApplicationOAuthProvider(PublicClientId)` line, just right click and see definition and check the `GrantResourceOwnerCredentials` method. See below:
+
+```C#
+        public ApplicationOAuthProvider(string publicClientId)
+        {
+            if (publicClientId == null)
+            {
+                throw new ArgumentNullException("publicClientId");
+            }
+
+            _publicClientId = publicClientId;
+        }
+
+        public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
+        {
+            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+
+            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+
+            if (user == null)
+            {
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
+            }
+
+            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
+               OAuthDefaults.AuthenticationType);
+            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
+                CookieAuthenticationDefaults.AuthenticationType);
+
+            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
+            context.Validated(ticket);
+            context.Request.Context.Authentication.SignIn(cookiesIdentity);
+        }
+```
