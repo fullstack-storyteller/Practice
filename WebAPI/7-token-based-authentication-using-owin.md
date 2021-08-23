@@ -93,3 +93,58 @@ To authenticate a given user, we can generate a token from these fields by calli
   ![response](./images/41.PNG)
 
 As you can see from the response screen shot, we got back a token from our POST request and it is of `Bearer` type. We can also see the time period upto which the token is going to be valid.
+
+**Notes:**
+
+- This implementation of `/token` is provided automatically by the Asp.Net Web API project itself during starting of the project.
+- To view the actuall implementation: Open `App_Start -> Startup.Auth.cs` has `ConfigureAuth` method, whcih provide the `/Token` endpoint
+- The below piece of code is responsible for this:
+
+```C#
+        public void ConfigureAuth(IAppBuilder app)
+        {
+            // Configure the db context and user manager to use a single instance per request
+            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+
+            // Enable the application to use a cookie to store information for the signed in user
+            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+            // Configure the application for OAuth based flow
+            PublicClientId = "self";
+            OAuthOptions = new OAuthAuthorizationServerOptions
+            {
+                TokenEndpointPath = new PathString("/Token"),
+                Provider = new ApplicationOAuthProvider(PublicClientId),
+                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                // In production mode set AllowInsecureHttp = false
+                AllowInsecureHttp = true
+            };
+
+            // Enable the application to use bearer tokens to authenticate users
+            app.UseOAuthBearerTokens(OAuthOptions);
+
+            // Uncomment the following lines to enable logging in with third party login providers
+            //app.UseMicrosoftAccountAuthentication(
+            //    clientId: "",
+            //    clientSecret: "");
+
+            //app.UseTwitterAuthentication(
+            //    consumerKey: "",
+            //    consumerSecret: "");
+
+            //app.UseFacebookAuthentication(
+            //    appId: "",
+            //    appSecret: "");
+
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = "",
+            //    ClientSecret = ""
+            //});
+        }
+
+```
