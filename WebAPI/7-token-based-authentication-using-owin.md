@@ -91,3 +91,5 @@ To authenticate a given user, we can generate a token from these fields by calli
   ![request](./images/40.PNG)
 - Response:
   ![response](./images/41.PNG)
+
+As you can see from the response screen shot, we got back a token from our POST request and it is of `Bearer` type. We can also see the time period upto which the token is going to be valid.
