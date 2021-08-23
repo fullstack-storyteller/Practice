@@ -80,3 +80,14 @@ Check the Register.html page for code details, on how the validation is being do
 | dbo.AspNetUserLogins     | Used by 3rd party authentication providers like facebook, github or google     |
 | dbo.AspNetUserRoles      | Its a bridge table which tells us which users is associated with which roles   |
 | dbo.AspNetUsers          | Our actual users are present here                                              |
+
+## testing token based identity in fiddler
+
+In the identity database or the AspNetUsers table (Which is a .net OWIN supplied table for storing user identities in web application), you will see that email and username fields are same.
+
+To authenticate a given user, we can generate a token from these fields by calling a POST request to `/token` url in web api as shown below:
+
+- Request:
+  ![request](./images/40.PNG)
+- Response:
+  ![response](./images/41.PNG)
