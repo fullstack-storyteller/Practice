@@ -197,3 +197,7 @@ This is because we have decorated the Employee controller with \[Authorize\] att
 To fix this we will need to supply the token with the keyword `Bearer` (include a space after bearer keyword) in the Authorization header as shown below. if the token is valid( i.e. not expired) then the authentication will succeed and you will get the output as expected.
 
 ![success](./images/44.PNG)
+
+## Implementation of Login Page using what we learnt till now
+
+Refer Login.html page in the project
