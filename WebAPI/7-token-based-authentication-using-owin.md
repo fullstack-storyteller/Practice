@@ -185,3 +185,11 @@ As you can see from the response screen shot, we got back a token from our POST 
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
         }
 ```
+
+Now, Without the access token if we make the request now, then we will get unathorized response as below:
+
+![unauthorize](./images/42.PNG)
+
+This is because we have decorated the Employee controller with \[Authorize\] attribute:
+
+![authorize](./images/43.PNG)
