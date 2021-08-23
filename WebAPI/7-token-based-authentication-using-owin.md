@@ -193,3 +193,7 @@ Now, Without the access token if we make the request now, then we will get unath
 This is because we have decorated the Employee controller with \[Authorize\] attribute:
 
 ![authorize](./images/43.PNG)
+
+To fix this we will need to supply the token with the keyword `Bearer` (include a space after bearer keyword) in the Authorization header as shown below. if the token is valid( i.e. not expired) then the authentication will succeed and you will get the output as expected.
+
+![success](./images/44.PNG)
