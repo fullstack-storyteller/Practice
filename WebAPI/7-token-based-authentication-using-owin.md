@@ -1,4 +1,4 @@
-# Implement token based Authentication in .NET Web API using OWIN Middleware and Identity Framework
+# Implement token based Authentication in .NET Web API using Open Web Interface (OWIN) Middleware and Identity Framework
 
 Project: 3_WebApiTokenAuthenticationUsingOwin
 Ensure to select Authentication using Individual User Accounts while creating the projects
