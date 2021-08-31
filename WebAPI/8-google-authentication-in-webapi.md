@@ -14,3 +14,8 @@ The authentication or login provider details will get saved in ASPNETUSERS and A
 
 Before the authentication:
 ![before](./images/45.PNG)
+
+## Steps to register our app with google
+
+1. asfasfasf
+2. asfasfas
