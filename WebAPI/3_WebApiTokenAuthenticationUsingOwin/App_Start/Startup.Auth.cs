@@ -60,11 +60,11 @@ namespace _3_WebApiTokenAuthenticationUsingOwin
             //    appId: "",
             //    appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "304487547524-1ivlrr8sk7ua8berv685h7e5n5harpsd.apps.googleusercontent.com",
+                ClientSecret = "sQJln7wLa-SaWJOUvEClSXqZ"
+            });
         }
     }
 }

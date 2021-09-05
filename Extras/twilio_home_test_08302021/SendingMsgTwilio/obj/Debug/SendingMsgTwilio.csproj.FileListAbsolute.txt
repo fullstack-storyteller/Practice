@@ -1,0 +1,17 @@
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\SendingMsgTwilio.exe.config
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\SendingMsgTwilio.exe
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\SendingMsgTwilio.pdb
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Newtonsoft.Json.dll
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Twilio.dll
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Newtonsoft.Json.xml
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\bin\Debug\Twilio.xml
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\obj\Debug\SendingMsgTwilio.csproj.AssemblyReference.cache
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\obj\Debug\SendingMsgTwilio.csproj.CoreCompileInputs.cache
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\obj\Debug\SendingMsgTwilio.csproj.CopyComplete
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\obj\Debug\SendingMsgTwilio.exe
+D:\GITHUB\Practice\Extras\twilio_home_test_08302021\SendingMsgTwilio\obj\Debug\SendingMsgTwilio.pdb

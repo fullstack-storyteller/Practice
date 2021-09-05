@@ -38,8 +38,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="2"><input type="button" class="btn btn-success" value="Sign in with Google" id="btnGoogleSignIn"/>
-                        &nbsp; <input type="button" class="btn btn-success" value="Sign in with Facebook" id="btnFacebookSignIn" />
+                        <td colspan="2"><input type="button" class="btn btn-success" value="Login with Google" id="btnGoogleLogin"/>
+                        &nbsp; <input type="button" class="btn btn-success" value="Login with Facebook" id="btnFacebookLogin" />
                         </td>
                     </tr>
                 </tbody>
@@ -62,6 +62,11 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $('#btnGoogleLogin').click(function () {
+                window.location.href = "";//this is the place where we find the google sign on page.
+                //but to get that url, we will need to make an ajax request to: 
+                // https://localhost:44318/api/Account/ExternalLogins?returnURl
+            });
             $('#btnLogin').click(function () {
                 $.ajax({
                     url: '/Token',
