@@ -25,4 +25,4 @@ We will learn the following in this series:
     - Apache
     - Docker
     - Self-host in your own process
-  - From a development standpoint you can either use visual studio or visual studio code or even sublime (3<sup>rd<sup/> party edtior)
+  - From a development standpoint you can either use visual studio or visual studio code or even sublime (3<sup>rd</sup> party edtior)
