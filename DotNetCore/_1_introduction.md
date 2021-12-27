@@ -26,7 +26,7 @@ We will learn the following in this series:
     - Apache
     - Docker
     - Self-host in your own process
-  - From a development standpoint you can either use visual studio or visual studio code or even sublime (3<sup>rd</sup> party edtior)
+  - From a development standpoint you can either use visual studio or visual studio code or even sublime, Vim, Atom (3<sup>rd</sup> party edtior)
 
 - Unified or One Programming Model for MVC and Web API
 
@@ -43,3 +43,7 @@ We will learn the following in this series:
   - Both the request and response pipelines are composed using the middleware components
   - Rich set of built-in middleware components are provided out of the box
   - Custom Middleare Components can also be created
+
+## Note
+
+Make sure to have latest version of .Net Core SDK installed on your machine to follwo along with this course. You can download the same from [here](https://dotnet.microsoft.com/en-us/download)
