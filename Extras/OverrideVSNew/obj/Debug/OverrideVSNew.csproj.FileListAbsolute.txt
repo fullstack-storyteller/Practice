@@ -1,0 +1,7 @@
+D:\GITHUB\Practice\Extras\OverrideVSNew\bin\Debug\OverrideVSNew.exe.config
+D:\GITHUB\Practice\Extras\OverrideVSNew\bin\Debug\OverrideVSNew.exe
+D:\GITHUB\Practice\Extras\OverrideVSNew\bin\Debug\OverrideVSNew.pdb
+D:\GITHUB\Practice\Extras\OverrideVSNew\obj\Debug\OverrideVSNew.csproj.AssemblyReference.cache
+D:\GITHUB\Practice\Extras\OverrideVSNew\obj\Debug\OverrideVSNew.csproj.CoreCompileInputs.cache
+D:\GITHUB\Practice\Extras\OverrideVSNew\obj\Debug\OverrideVSNew.exe
+D:\GITHUB\Practice\Extras\OverrideVSNew\obj\Debug\OverrideVSNew.pdb
