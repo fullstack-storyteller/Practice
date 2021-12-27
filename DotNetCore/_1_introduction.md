@@ -31,10 +31,15 @@ We will learn the following in this series:
 - Unified or One Programming Model for MVC and Web API
 
   - Both the MVC Controller class and the ASP .Net Web API Controller class inherit from the same `Controller` base class and return `IActionResult`.
-  - IActionResult has many implementations like ViewResult and JsonResult.
+  - `IActionResult` has many implementations like `ViewResult` and `JsonResult`.
 
 - Dependency Injection
   - ASP .Net Core has built-in support for dependency injection
   - We will discuss this at length
 - Testability
 - Open Source and Community focused
+- Modular
+  - ASP .Net Core provides Modularity with Middleware Components
+  - Both the request and response pipelines are composed using the middleware components
+  - Rich set of built-in middleware components are provided out of the box
+  - Custom Middleare Components can also be created
