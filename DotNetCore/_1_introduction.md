@@ -47,3 +47,5 @@ We will learn the following in this series:
 ## Note
 
 Make sure to have latest version of .Net Core SDK installed on your machine to follwo along with this course. You can download the same from [here](https://dotnet.microsoft.com/en-us/download)
+
+The SDK will already include the run-time as well.
