@@ -8,7 +8,7 @@
 
   - ![check](./images/2.png)
 
-## Target Framework
+## TargetFramework element
 
 - Specifies the target framework for the application
 - To specify a taret framework we use Target Framework Moniker (TFM)
@@ -25,9 +25,35 @@
     ```
 
 - Naming Convention
+
   - | Name           | Abbreviation | TFM           |
     | -------------- | ------------ | ------------- |
     | .Net Framework | net          | net451        |
     | .Net Framework | net          | net472        |
     | .Net Core      | netcoreapp   | netcoreapp1.0 |
     | .Net Framework | netcoreapp   | netcoreapp2.2 |
+
+## ASPNETCoreHostingModel element
+
+- Specifies how the application should be hosted
+- InProcess or OutOfProcess
+  - InProcess hosts the app inside of the IIS Worker Process (w3wp.exe)
+  - OutOfProcess hosting model forwards web requests to a backend ASP .Net Core app running the Kestrel Server
+  - The default is OutOfProcess hosting
+
+## PackageReference element
+
+- Used to include a reference to the NuGet packages that are installed for the application. It may look something like below
+
+  - ```directly Inside The .csproj File
+    <ItemGroup>
+     <PackageReference Include="Microsoft.AspNetCore.App"/>
+     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" ....... />
+    </ItemGroup>
+    ```
+
+  - Now, the package reference `Microsoft.AspNetCore.App` is called a Metapackage and it does not require any version for the IDE will find it implicitly. Metapackage also has no content of its own. It just contains the list of other dependencies. This Metapackage has most of the things that we need to develop or ASP .Net Core application
+
+## Note
+
+The content of the video series you follwed for learning .Net Core was for .Net Core 2.2 but while learning .Net Core 3.1 came out. So you may not see all the elements in your project file.
