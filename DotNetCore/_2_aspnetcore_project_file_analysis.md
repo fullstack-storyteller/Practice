@@ -23,3 +23,11 @@
     </Project>
 
     ```
+
+- Naming Convention
+  - | Name           | Abbreviation | TFM           |
+    | -------------- | ------------ | ------------- |
+    | .Net Framework | net          | net451        |
+    | .Net Framework | net          | net472        |
+    | .Net Core      | netcoreapp   | netcoreapp1.0 |
+    | .Net Framework | netcoreapp   | netcoreapp2.2 |
