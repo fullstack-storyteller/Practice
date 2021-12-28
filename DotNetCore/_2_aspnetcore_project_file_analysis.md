@@ -14,12 +14,12 @@
 - To specify a taret framework we use Target Framework Moniker (TFM)
 
   - ```EmployeeManagement.csproj
-      <Project Sdk="Microsoft.NET.Sdk.Web">
+    <Project Sdk="Microsoft.NET.Sdk.Web">
 
-      <PropertyGroup>
-          <TargetFramework>netcoreapp3.1</TargetFramework>
-      </PropertyGroup>
+       <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+       </PropertyGroup>
 
-      </Project>
+    </Project>
 
     ```
