@@ -99,6 +99,6 @@ Some of the tasks that CreateDefaultBuilder() performs
 - Loading the host and application configuration from various configuration sources
 - Configuring Logging
 
-During InProcess hosting CreateDefaultBuilder() mehtod calls UseIIS() method and hsts the app inside of the IIS worker process (w3wp.exe or iisexpress.exe)
+During InProcess hosting CreateDefaultBuilder() mehtod calls UseIIS() method and hsts the app inside of the IIS worker process (w3wp.exe or iisexpress.exe). For OutOfProcess hosting, the process name will be same as the Project Name
 
 InProcess hosting has significantly higher request throughput than OutOfProcess hosting
