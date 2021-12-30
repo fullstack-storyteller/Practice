@@ -38,7 +38,7 @@ This file is only required in our local development machine and it is not needed
 }
 ```
 
-## **Note**
+## **Note 1**
 
 If you notice the launchSettings.json file, you will see that we have various `profiles` listed. These profiles will give specific information regarding the launch of the our application. The keys are self explanatory. The combination of `commandName` in launchSettings.json and `<AspNetCoreHostingModel></AspNetCoreHostingModel>` in .csproj or .vbproj file will determine which types of servers will be used. Please refer the below chart.
 
@@ -49,3 +49,7 @@ If you notice the launchSettings.json file, you will see that we have various `p
 | `"IISExpress"` i.e. `IISExpress` profile selected from the above example.       | `OutOfProcess`                                   | internally kestrel server will be used | Externally IIS Express server will be used as reverse proxy server |
 | `"IIS"` i.e. `IIS` profile selected from the above example.                     | `InProcess`                                      | only one webserver - IIS               |                                                                    |
 | `"IIS"` i.e. `IIS` profile selected from the above example.                     | `OutOfProcess`                                   | internally kestrel server will be used | Externally IIS server will be used as reverse proxy server         |
+
+## **Note 2**
+
+You can modify launchSettings.json file directly or you can Right Click on the project and open properties then select `Debug` tab to set relevant values.
