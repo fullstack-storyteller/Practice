@@ -37,3 +37,7 @@ This file is only required in our local development machine and it is not needed
   }
 }
 ```
+
+## **Note**
+
+If you notice the launchSettings.json file, you will see that we have various `profiles` listed. These profiles will give specific information regarding the launch of the our application. The keys are self explanatory. The combination of `commandName` in launchSettings.json and `<AspNetCoreHostingModel></AspNetCoreHostingModel>` in .csproj or .vbproj file will determine which types of servers will be used. Please refer the below chart.
