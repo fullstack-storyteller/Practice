@@ -39,7 +39,7 @@
 - InProcess or OutOfProcess
   - InProcess hosts the app inside of the IIS Worker Process (w3wp.exe)
   - OutOfProcess hosting model forwards web requests to a backend ASP .Net Core app running the Kestrel Server
-  - The default is OutOfProcess hosting
+  - The default is OutOfProcess hosting upto version netcore2.2 but in netcore3.1 we have InProcess hosting as default hosting model. We will learn more about this in next segments.
 
 ## PackageReference element
 
@@ -56,4 +56,4 @@
 
 ## Note
 
-The content of the video series you follwed for learning .Net Core was for .Net Core 2.2 but while learning .Net Core 3.1 came out. So you may not see all the elements in your project file.
+The content of the video series you followed for learning .Net Core was for .Net Core 2.2 but while learning .Net Core 3.1 came out. So you may not see all the elements in your project file.

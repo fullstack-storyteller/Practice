@@ -18,8 +18,12 @@ namespace EmployeeManagement
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>(); //UseStartup is a method for extension method for IHostBuilder
                 });
     }
 }
 ```
+
+- In Startup.cs file we have two important method
+  1. `public void ConfigureServices(IServiceCollection services)` - This method gets called by the runtime. And it is used to add services to the container i.e. the services required by the application.
+  2. `public void Configure(IApplicationBuilder app, IWebHostEnvironment env)` - This method gets called by the runtime. It is used to configure our application HTTP request processing pipeline

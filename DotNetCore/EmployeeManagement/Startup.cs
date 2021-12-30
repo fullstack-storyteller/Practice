@@ -32,7 +32,8 @@ namespace EmployeeManagement
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    //await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync(string.Format("Hello {0}!", System.Diagnostics.Process.GetCurrentProcess().ProcessName));
                 });
             });
         }
