@@ -24,9 +24,12 @@ There are 2 types of hosting models in ASP.NET Core i.e In-process Hosting and O
 
 After the release of .NET Core 2.2, it introduced a new type of hosting which is called In-process hosting. In this type, only one server is used for hosting like IIS, Nginx or Linux. It means that the App is directly hosted inside of IIS. No Kestrel server is being used. IIS HTTP Server (IISHttpServer) is used instead of the Kestrel server to host apps in IIS directly. ASP.NET Core 3.1 onwards **In-process** hosting model is used as a default model whenever you create a new application using an existing template.
 
-![kestrel](./images/4.png)
+![without kestrel but using IIS](./images/4.png)
 
 - **Default** hosting model in ASP .Net Core 3.1 onwards.
+- Running the Project from visual studio using `Debug` -> `Start Without Debugging`, the project will start using IIS Server as shown below. Offcourse, the version of ASP .Net Core app in this example is 3.1
+
+![running a project using without using kestrel server - InProcess](./images/6.png)
 
 ## OutOfProcess Hosting
 
@@ -43,3 +46,7 @@ In OutOfProcess hosting models, we can either use the Kestrel server directly as
   - This model is a default model for all the applications implemented before .NET Core 2.2. But there are some of the limitations of using this type such as performance slowness.
 
 - **Default** hosting model in ASP .Net Core earlier version.
+
+- When we build and run the project from Visual Studio Command Line by `Tools` -> `Command Line` -> `Developer Command Prompt`, and use `dotnet run` command the project will run using the ketrel server as shown below:
+
+![running a project using kestrel server - OutOfProcess](./images/5.png)
