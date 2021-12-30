@@ -47,6 +47,5 @@ If you notice the launchSettings.json file, you will see that we have various `p
 | `"Project"`, i.e. `EmployeeManagement` profile selected from the above example. | Hosting setting ignored                          | only one webserver - Kestrel           |                                            |
 | `"IISExpress"` i.e. `IISExpress` profile selected from the above example.       | `InProcess`                                      | only one webserver - IIS Express       |                                            |
 | `"IISExpress"` i.e. `IISExpress` profile selected from the above example.       | `OutOfProcess`                                   | internally kestrel server will be used | Externally IIS Express server will be used |
-
-| `"IIS"` i.e. `IIS` profile selected from the above example. | `InProcess` | only one webserver - IIS | |
-| `"IIS"` i.e. `IIS` profile selected from the above example. | `OutOfProcess` | internally kestrel server will be used | Externally IIS server will be used |
+| `"IIS"` i.e. `IIS` profile selected from the above example.                     | `InProcess`                                      | only one webserver - IIS               |                                            |
+| `"IIS"` i.e. `IIS` profile selected from the above example.                     | `OutOfProcess`                                   | internally kestrel server will be used | Externally IIS server will be used         |
