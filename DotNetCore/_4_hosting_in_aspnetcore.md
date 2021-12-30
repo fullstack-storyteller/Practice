@@ -22,16 +22,24 @@ There are 2 types of hosting models in ASP.NET Core i.e In-process Hosting and O
 
 ## InProcess Hosting
 
+After the release of .NET Core 2.2, it introduced a new type of hosting which is called In-process hosting. In this type, only one server is used for hosting like IIS, Nginx or Linux. It means that the App is directly hosted inside of IIS. No Kestrel server is being used. IIS HTTP Server (IISHttpServer) is used instead of the Kestrel server to host apps in IIS directly. ASP.NET Core 3.1 onwards **In-process** hosting model is used as a default model whenever you create a new application using an existing template.
+
+![kestrel](./images/4.png)
+
 - **Default** hosting model in ASP .Net Core 3.1 onwards.
 
 ## OutOfProcess Hosting
 
 In OutOfProcess hosting models, we can either use the Kestrel server directly as a user request facing server or we can deploy the app into IIS which will act as a proxy server and sends requests to the internal Kestrel server. In this type of hosting model we have two options:
 
-- Using Kestrel: So in this type Kestrel itself acts as edge server which directly server user requests. It means that we can only use the Kestrel server for our application.
+- **Using Kestrel**: So in this type Kestrel itself acts as edge server which directly server user requests. It means that we can only use the Kestrel server for our application.
 
   - ![kestrel](./images/1.png)
 
--
+- **Using a Proxy Server**: Due to limitations of the Kestrel server, we can not use this in all the apps. In such cases, we have to use powerful servers like IIS, NGINX or Apache. So, in that case, this server acts as a reserve proxy server which redirects every request to the internal Kestrel sever where our app is running. Here, two servers are running. One is IIS and another is Kestrel.
+
+  - ![kestrel with proxy](./images/3.png)
+
+  - This model is a default model for all the applications implemented before .NET Core 2.2. But there are some of the limitations of using this type such as performance slowness.
 
 - **Default** hosting model in ASP .Net Core earlier version.
