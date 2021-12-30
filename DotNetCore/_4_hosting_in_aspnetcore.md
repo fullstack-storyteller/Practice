@@ -90,3 +90,11 @@ In ASP.NET Core apps we don't have `web.config` so first, we have to publish the
 ```
 
 As we mentioned earlier from ASP.NET Core 3.1, the `In-process` hosting model is the default model. So if you want to change it to other i.e. Out -of-process then you just need to change `hostingModel="OutOfProcess"`.
+
+## Note
+
+Some of the tasks that CreateDefaultBuilder() performs
+
+- Setting up the web server
+- Loading the host and application configuration from various configuration sources
+- Configuring Logging
