@@ -44,5 +44,5 @@ If you notice the launchSettings.json file, you will see that we have various `p
 
 | `commandName` in launchSettings.json                                            | `AspNetCoreHostingModel` element in project file | Internal Web Server              | External Web Server |
 | ------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------- | ------------------- |
-| `"Project"`, i.e. `EmployeeManagement` profile selected from the above example. | Hosting setting ignored                          | only one webserver - Kestrel     |
-| `"IISExpress"` i.e. `IISExpress` profile selected from the above example.       | `InProcess`                                      | only one webserver - IIS Express |
+| `"Project"`, i.e. `EmployeeManagement` profile selected from the above example. | Hosting setting ignored                          | only one webserver - Kestrel     |                     |
+| `"IISExpress"` i.e. `IISExpress` profile selected from the above example.       | `InProcess`                                      | only one webserver - IIS Express |                     |
