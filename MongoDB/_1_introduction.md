@@ -14,6 +14,6 @@ The entire lessons of MONGODB is being studied from [this](https://www.youtube.c
 - **In simple terms:** A NoSQL database is a Key-Value Database
 - A NoSQL database provides:
   - A mechanism for storage and retrieval of data
-  - The data is **NOT** modeled in relational or tabular format
+  - The data is **NOT** modeled in _relational or tabular format_
   - A large variations and flavours of NoSQL are available in market - _MongoDB, Amazon DocumentDB, Google Datastore, Amazon DynamoDB etc_..
   - Extremely useful, powerful and high performance database in large bigdata applications, large distributed network architecture apps etc..
