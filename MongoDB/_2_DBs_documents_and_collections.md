@@ -31,7 +31,6 @@
 | ----------------------------------------------------------------------------------- | ---------------------------------- |
 | Examples: Oracle, MySQL, SQL Server, etc are relational database management systems | MongoDB is a non RDBMS             |
 | Database: collection of tables                                                      | Database: container of collections |
-
-| Tables[entities: persons, objects, etc..] | | |
-| Columns[fields insde the table like first name, last name] | |
-| Rows[Actual data] | D |
+| Tables[entities: persons, objects, etc..]                                           |                                    |
+| Columns[fields insde the table like first name, last name]                          |                                    |
+| Rows[Actual data]                                                                   | D                                  |
