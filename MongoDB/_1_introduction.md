@@ -59,3 +59,4 @@ There are 3 ways to install and use MongoDB
   - Pay as you go model
   - Very cost-effective
   - Fully secured and reliable
+  - nothing to be installed locally
