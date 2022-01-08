@@ -27,10 +27,11 @@
 - Documents within a collection can have different schema or fields
 - Documents within a collection are related data belonging to a particular subject
 
-| SQL                                                                                 | NoSQL                             |
-| ----------------------------------------------------------------------------------- | --------------------------------- | --- |
-| Examples: Oracle, MySQL, SQL Server, etc are relational database management systems | MongoDB is a non RDBMS            |
-| Database collection of tables                                                       | Database container of collections |
-| Tables[entities: persons, objects, etc..]                                           |                                   |     |
-| Columns[fields insde the table like first name, last name]                          |                                   |
-| Rows[Actual data]                                                                   | D                                 |
+| SQL                                                                                 | NoSQL                  |
+| ----------------------------------------------------------------------------------- | ---------------------- |
+| Examples: Oracle, MySQL, SQL Server, etc are relational database management systems | MongoDB is a non RDBMS |
+
+| Database collection of tables | Database container of collections |
+| Tables[entities: persons, objects, etc..] | | |
+| Columns[fields insde the table like first name, last name] | |
+| Rows[Actual data] | D |
