@@ -42,3 +42,20 @@ The entire lessons of MONGODB is being studied from [this](https://www.youtube.c
 
 - It is **NOT** a RDBMS
 - it doesn't have any concept of joins. it does have a provision of aggregations to club collections. We will see it later.
+
+## Ways to Install
+
+There are 3 ways to install and use MongoDB
+
+- Community Server
+  - Visit the official [website](https://www.mongodb.com/try/download/community)
+  - Install as instructed in the dialog box. and give host: `localhost` and port `27017` and connect. For now no authentication.
+  - Download the latest stable version from the community server
+- Visual Studio Extension
+  - Here you can install the MongoDB extension in VS Code itself. Once done, you directly connect tthe same way as you have done earlier in the above step.
+  - Once installed you can create new connection to your local or remote MongoDB server by using the connection string as `mongodb://localhost:27017`
+- MongoDB Atlas
+  - Cloud-hosted and fully managed MongoDB
+  - Pay as you go model
+  - Very cost-effective
+  - Fully secured and reliable
