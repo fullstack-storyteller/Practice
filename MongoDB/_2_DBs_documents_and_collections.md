@@ -16,3 +16,13 @@
 - Unlike tables in SQL, collections do not have any schema definition
 - Unlike RDBMS Database - the collections DO NOT have any concept of JOINS
   - However we can acheive joins functionality using Aggregations in MongoDB
+
+## What is a Document
+
+- Document in MongoDB is a set of "Key-Value" pairs
+- Every document in MongoDB has a unique value via **Key "\_id"**
+- Documents have flexible and dynamic schema
+- Documents schema is user--defined and is not Fixed or Static
+- Documents can hold any data as long as they are valid data-types in MongoDB
+- Documents within a collection can have different schema or fields
+- Documents within a collection are related data belonging to a particular subject
