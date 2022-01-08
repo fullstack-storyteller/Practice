@@ -37,3 +37,8 @@ The entire lessons of MONGODB is being studied from [this](https://www.youtube.c
 
 }
 ```
+
+## What MongoDB is not
+
+- It is **NOT** a RDBMS
+- it doesn't have any concept of joins. it does have a provision of aggregations to club collections. We will see it later.
