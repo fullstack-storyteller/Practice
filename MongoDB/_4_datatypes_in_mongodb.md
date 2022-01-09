@@ -24,3 +24,15 @@ Below data types are available in MongoDB:
   - date
   - timestamp
   - Object id
+
+## What is Projection in MongoDB
+
+- Projection is nothing but another name for selecting the fields for showing or hiding the data
+  - We need to specifiy the field as "1" or "0". Example: `db.Family.find({},{"name":1,"Salary":1, "_id":0}).pretty()`
+  - If we don't specify the projection, then it will display every possible field
+- What happens under the hood?
+  - MongoDB gets all the documents
+  - finds matching document according to the filter criteria
+  - Extract the keys / fields that are included in the projection or that we asked for
+  - display the result
+  - By default, if nothing is included in projection, everything will be returned and displayed.
