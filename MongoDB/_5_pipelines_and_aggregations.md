@@ -13,6 +13,7 @@ var pipeline=[
     {$limit:2}
 ];
 db.Family.aggregate(pipeline).pretty();
+
 ```
 
 ## What is a pipeline
