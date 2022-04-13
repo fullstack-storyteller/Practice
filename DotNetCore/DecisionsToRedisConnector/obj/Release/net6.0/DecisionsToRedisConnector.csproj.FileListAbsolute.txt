@@ -1,0 +1,12 @@
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\bin\Release\net6.0\DecisionsToRedisConnector.deps.json
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\bin\Release\net6.0\DecisionsToRedisConnector.dll
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\bin\Release\net6.0\DecisionsToRedisConnector.pdb
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.csproj.AssemblyReference.cache
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.GeneratedMSBuildEditorConfig.editorconfig
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.AssemblyInfoInputs.cache
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.AssemblyInfo.cs
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.csproj.CoreCompileInputs.cache
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.dll
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\refint\DecisionsToRedisConnector.dll
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\DecisionsToRedisConnector.pdb
+D:\GITHUB\Practice\DotNetCore\DecisionsToRedisConnector\obj\Release\net6.0\ref\DecisionsToRedisConnector.dll
