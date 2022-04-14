@@ -9,7 +9,7 @@ using DecisionsFramework.Design.Flow.CoreSteps;
 using DecisionsFramework.Design.ConfigurationStorage.Attributes;
 using StackExchange.Redis;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+//using Newtonsoft.Json.Linq;
 
 namespace DecisionsToRedisConnector
 {
@@ -63,9 +63,9 @@ namespace DecisionsToRedisConnector
                 if(value != RedisValue.Null || value != RedisValue.EmptyString)
                 {
                     //record retrieved
-                    JObject obj = JObject.Parse(value.ToString());
+                    //JObject obj = JObject.Parse(value.ToString());
                     Dictionary<string, object> resultData = new Dictionary<string, object>();
-                    resultData.Add("JSON Output", obj.ToString());
+                    resultData.Add("JSON Output", value);
                     return new ResultData("Retrieved", resultData);
                 }
                 else
