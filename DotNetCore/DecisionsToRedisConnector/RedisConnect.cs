@@ -60,7 +60,7 @@ namespace DecisionsToRedisConnector
                 var db = redis.GetDatabase();
                 var value = db.StringGet(redisKeyToSearch);
 
-                if(value != RedisValue.Null || value != RedisValue.EmptyString)
+                if(value != RedisValue.Null && value != RedisValue.EmptyString)
                 {
                     //record retrieved
                     //JObject obj = JObject.Parse(value.ToString());
