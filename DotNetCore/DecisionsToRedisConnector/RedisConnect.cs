@@ -65,7 +65,7 @@ namespace DecisionsToRedisConnector
                     //record retrieved
                     JObject obj = JObject.Parse(value);
                     Dictionary<string, object> resultData = new Dictionary<string, object>();
-                    resultData.Add("JSON Output", obj);
+                    resultData.Add("JSON Output", obj.ToString());
                     return new ResultData("Retrieved", resultData);
                 }
                 else
