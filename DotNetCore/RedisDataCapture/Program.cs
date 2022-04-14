@@ -7,7 +7,7 @@ public class RedisDataCapture
 {
     static string redisHost = "localhost";
     static string redisPort = "6379";
-    static string redisKey = "my-key";
+    static string redisKey = "mykey1";
 
     //static readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(
     //        new ConfigurationOptions
