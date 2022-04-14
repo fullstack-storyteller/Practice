@@ -63,7 +63,7 @@ namespace DecisionsToRedisConnector
                 if(value != RedisValue.Null || value != RedisValue.EmptyString)
                 {
                     //record retrieved
-                    JObject obj = JObject.Parse(value);
+                    JObject obj = JObject.Parse(value.ToString());
                     Dictionary<string, object> resultData = new Dictionary<string, object>();
                     resultData.Add("JSON Output", obj.ToString());
                     return new ResultData("Retrieved", resultData);
