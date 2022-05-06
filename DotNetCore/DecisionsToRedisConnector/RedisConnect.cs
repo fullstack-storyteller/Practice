@@ -48,16 +48,28 @@ namespace DecisionsToRedisConnector
             bool abortOnConnectFail = (bool)data.Data["AbortOnConnectFail"];
             int timeOut = (int)data.Data["TimeOut"];
 
-            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(
-            new ConfigurationOptions
-            {
-                EndPoints = { redisConnectionString },
-                AbortOnConnectFail = abortOnConnectFail,
-                ConnectTimeout = timeOut
-            });
+            //Commenting out this part as this connection multiplexer is not shared
+
+            //ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(
+            //new ConfigurationOptions
+            //{
+            //    EndPoints = { redisConnectionString },
+            //    AbortOnConnectFail = abortOnConnectFail,
+            //    ConnectTimeout = timeOut
+            //});
+
             try
             {
-                var db = redis.GetDatabase();
+                RedisCache redisCache = new RedisCache(
+                    new ConfigurationOptions
+                    {
+                        EndPoints = { redisConnectionString },
+                        AbortOnConnectFail = abortOnConnectFail,
+                        ConnectTimeout = timeOut
+                    });
+
+                //var db = redis.GetDatabase();
+                var db = RedisCache.Connection.GetDatabase();
                 var value = db.StringGet(redisKeyToSearch);
 
                 if(value != RedisValue.Null && value != RedisValue.EmptyString)
@@ -83,5 +95,30 @@ namespace DecisionsToRedisConnector
             }
         }
 
+    }
+
+    public class RedisCache
+    {
+        private static ConfigurationOptions? _configurationOptions;
+
+        public RedisCache(ConfigurationOptions configurationOptions)
+        {
+            if (configurationOptions == null) throw new ArgumentNullException("configurationOptions");
+            _configurationOptions = configurationOptions;
+        
+        }
+
+        //wrapping the connection multiplexer in static wrapper for reusability
+        private static readonly Lazy<ConnectionMultiplexer> LazyConnection
+          = new Lazy<ConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(_configurationOptions));
+
+        public static ConnectionMultiplexer Connection
+        {
+            get
+            {
+                return LazyConnection.Value;
+            }
+        }
+        
     }
 }
